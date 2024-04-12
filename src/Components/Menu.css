@@ -1,5 +1,5 @@
-.Menu {
-    width: 150px;
+menu {
+    width: 100px;
     height: 100%;
     background: #ffffff00;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
@@ -13,9 +13,86 @@
 
 } 
 
-.Menu img {
-    width: 4rem;
+menu img {
+    width: 3rem;
     margin-top: 2rem;
+    border-radius: 50%;
+    border: 2px solid #00ff26; 
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+menu img:hover {
+    transform: scale(1.1);
+    border: 2px solid #FFF;
+}
+
+menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 2rem;
+}
+
+menu ul li {
+    margin: 1rem 0;
+    list-style: none;
+    position: relative;
+    width: 100%;
+    color: #00ff26;
+    text-align: center;
+}
+
+menu ul li a {
+    text-decoration: none;
+    color: #00ff26;
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 100%;
+    border-radius: 0 16px 16px 0;
+    transition: all 0.3s;
+}
+
+menu ul li a::before {
+    position: absolute;
+    content: '';
+    top: 5px;
+    left: -1.2rem;
+    width: 0px;
+    height: 1.2rem;
+    background: #fFF;
     border-radius: 50%;
 }
 
+menu ul li a:hover {
+    color: #FFF;
+}
+
+menu ul li a:hover a::before {
+    width: 1.2rem;
+    transition: all 0.3s; 
+}
+
+menu ul li.active a {
+    color: #FFF;
+}
+
+menu ul li.active a::before {
+    width: 1.2rem;
+    transition: all 0.3s; 
+}
+
+.lasttMenu {
+    margin-top: auto;
+}
+
+
+/* Midia Query screen */
+@media only screen and (max-width: 525px) {
+    menu {
+        min-width: 68px; 
+        width: 68px; 
+    }
+
+}
