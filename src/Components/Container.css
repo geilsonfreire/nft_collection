@@ -4,3 +4,10 @@
     padding: 1rem;
     padding-top: 2rem;
 }
+
+/* Aplicando MediaQuery */
+@media only screen and (max-width: 525px) {
+    .Container {
+        width: calc(100% - 68px);
+    }
+} 
