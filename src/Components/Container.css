@@ -1,0 +1,6 @@
+.Container {
+    width: calc(100% - 100px);
+    height: 100%;
+    padding: 1rem;
+    padding-top: 2rem;
+}

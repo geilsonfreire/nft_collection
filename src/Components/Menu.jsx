@@ -1,5 +1,5 @@
 import React, {useEffect} from "react"; 
-import "../Components/Menu.css"; /* import the Menu.css file */
+import "./Menu.css"; /* import the Menu.css file */
 import Logo from "../Assets/imgs/logo.gif"; /* import the logo.gif file */
 import { 
     FaDelicious, 
