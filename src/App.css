@@ -3,8 +3,6 @@
     width: 100%;
     height: 100vh;
     background: #00FF26;
-    background: #00FF26;
-    background: #00FF26;
     background: repeating-radial-gradient(ellipse farthest-side at top left, #00FF26 95%, #000000 0%, #03010D 100%, #FFFF0A 94%);
     overflow: hidden;
 }

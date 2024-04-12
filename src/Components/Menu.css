@@ -57,12 +57,13 @@ menu ul li a {
 menu ul li a::before {
     position: absolute;
     content: '';
-    top: 5px;
-    left: -1.2rem;
+    top: 13px;
+    left: 0;
     width: 0px;
-    height: 1.2rem;
-    background: #fFF;
-    border-radius: 50%;
+    height: 5px;
+    background: transparent;
+    border-bottom: 1px solid #fff;
+    
 }
 
 menu ul li a:hover {
@@ -70,7 +71,7 @@ menu ul li a:hover {
 }
 
 menu ul li a:hover a::before {
-    width: 1.2rem;
+    width: 1.8rem;
     transition: all 0.3s; 
 }
 
