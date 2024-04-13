@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"; // Import React
+import React, { useState, useEffect} from "react"; // Import React
 import "./ContainerHeader.css"; // Import CSS
 import { BiSearchAlt2 } from "react-icons/bi"; // Import IconName from react-icons/bi
 import { FaBell, FaChevronDown } from "react-icons/fa"; // Import IconName from react-icons/fa
@@ -8,7 +8,15 @@ import Geilson from "../Assets/Geilson.png"; // Import Image from Geilson.png
 // Create a functional component called ContainerHeader
 function ContainerHeader() {
 
+    // criando um estado para o placeholder
+    const [placeholder, setPlaceholder] = useState(""); // Estado para armazenar o placeholder
+    const placeholderFull = "Coleções"; // String completa do placeholder
+    // Índice para acompanhar a posição atual na string do placeholder
+    const [index, setIndex] = useState(0);
+    
+
     useEffect(() => { // UseEffect to open and close the drop menu
+
         // Get the elements by ID   
         const MenuTarget = document.getElementById('MenuChevron');
         const MenuContainer = document.getElementById('MenuConteiner');
@@ -23,15 +31,30 @@ function ContainerHeader() {
             MenuTarget.style.transform = "rotate(0deg)";
             MenuContainer.style.transform = "translateX(300px)";
         }); // Evento de mouse houver para fechar o menu dropdown
+
+        // Função para animar o placeholder
+        // Função para adicionar o próximo caractere ao placeholder
+        const addNextCharacter = () => {
+            if (index < placeholderFull.length) {
+                // Adiciona o próximo caractere ao placeholder
+                setPlaceholder((prev) => prev + placeholderFull[index]);
+                setIndex((prev) => prev + 1); // Atualiza o índice
+            };
+        };
+        // Define um intervalo para chamar a função addNextCharacter a cada 200ms
+        const timer = setInterval(addNextCharacter, 200);
+
+        // Limpa o intervalo quando o componente é desmontado
+        return () => clearInterval(timer);
         
-    }, []);
+    }, [index]); // Atualiza o useEffect quando o index é alterado
 
 
 
     return (
         <div className="ContainerHeader">
             <div className="InputBox">
-                <input type="text" placeholder="Pesaquise colleções" />
+                <input type="text" placeholder={placeholder} />
                 <i className="SearchIcon"><BiSearchAlt2 /></i>
             </div> {/* Container do imput */}
 
