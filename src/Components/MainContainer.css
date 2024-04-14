@@ -76,51 +76,94 @@
     grid-column: 1 / span 2;
 }
 
-.TextContainer .Down button {
-    border: solid 1px #fff;
-    cursor: pointer;
-    outline: none;
-    background-image: linear-gradient(45deg, #101113, #231824);
-    padding: .3rem;
-    border-radius: 10px;
-    
-}
-
-.TextContainer .Down button::after {
-    content: "";
-    border-radius: 18px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-    background: #0e0e10;
-}
-
-.TextContainer .Down button:hover {
-    background-image: linear-gradient(-45deg, #4568dc, #00ff26);
-    box-shadow: 0 12px 24px rgba(128, 128, 128, 0.1);
-}
-
-.TextContainer .Down button i {
-    margin-right: 10px;
+.TextContainer .Down button i.ButtonDown {
+    margin: 5px;
     font-size: .8rem;
     color: #fff;
 }
 
 .TextContainer .Down button a {
-    text-decoration: none;
-    color: #fff;
+    font-size: .6vw;
     font-family: "Russo One", sans-serif;
-    font-size: .6rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin: 5px;
 }
 
 
+/* Cards Geral*/
+.ContainerCards {
+    background: #ffffff04;
+    box-shadow: -1px 2px 10px 0 rgba(31, 38, 135, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 10px;
+}
 
+.ContainerCards .Filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 2rem;
+    border-bottom: 1px solid #00ff26;
+    border-radius: 5px;
+}
 
+.ContainerCards .Filters .Populares {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.ContainerCards .Filters .Populares h2 {
+    font-size: 1.5vw;
+    font-family: "Russo One", sans-serif;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #00ff26;
+    margin-right: 1rem;
+}
+
+.Populares .FilterButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+}
+
+.Populares .FilterButtons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: .3rem;
+}
+
+.Populares .FilterButtons button:hover {
+    background: #00ff26;
+    border-radius: 5px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.Populares .FilterButtons button a {
+    width: 100%;
+    height: 100%;
+    font-size: .6vw;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    margin: 0 0.5rem;
+}
+
+.Populares .FilterButtons button a:hover {
+    color: #000;
+}
 
 
 /* Lateral direita da pagina */

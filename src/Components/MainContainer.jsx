@@ -13,15 +13,15 @@ function MainContainer() {
                     background: `url(${Banner})`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
-                    backgroundPosition: "center"
-                }}>
+                    backgroundPosition: "center"}}>
+
                     <div className="TextContainer">
                         <h1>Destaque do dia</h1>
                         <h2>1.5 ETH</h2>
                         <p>Com mais de 3.5 milhões downloads</p>
                         <div className="Down">
-                            <button>
-                                <i className="SearchIcon">
+                            <button className="Button">
+                                <i className="ButtonDown">
                                     <LiaDownloadSolid />
                                 </i>
                                 <a href="" className="ButtonDown">
@@ -31,9 +31,38 @@ function MainContainer() {
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <div className="ContainerCards">
+                    <div className="Filters">
+                        <div className="Populares">
+                            <h2>Feed</h2>
+                            <div className="FilterButtons">
+                                <button>
+                                    <a href="">Todos</a>
+                                </button>
+                                <button>
+                                    <a href="">Populares</a>
+                                </button>
+                                <button>
+                                    <a href="">Inlustrados</a>
+                                </button>
+                                <button>
+                                    <a href="">Artistocos</a>
+                                </button>
+                                <button>
+                                    <a href="">Games</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+
+            </div> {/* Container Geral esquerdo */}
+
+
+
             <div className="right"></div>
-        </div>
+        </div> // Container geral
     );
 }
 
