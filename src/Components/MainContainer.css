@@ -45,7 +45,7 @@
     -webkit-background-clip: text;
     text-shadow: 2px 5px 1px #fff;
     color: transparent;
-    font-size: 2.5vw;
+    font-size: 2vw;
     font-weight: 700;
     font-family: "Russo One", sans-serif;
     letter-spacing: 2px;
@@ -65,7 +65,7 @@
 }
 
 .MainContainer .left .Banner .TextContainer p {
-    font-size: .8em;
+    font-size: .6vw;
     color: #fff;
     font-family: "Russo One", sans-serif;
 }
@@ -81,7 +81,7 @@
     cursor: pointer;
     outline: none;
     background-image: linear-gradient(45deg, #101113, #231824);
-    padding: .6rem;
+    padding: .3rem;
     border-radius: 10px;
     
 }
@@ -90,7 +90,6 @@
     content: "";
     border-radius: 18px;
     position: absolute;
-    margin: 4px;
     top: 0;
     left: 0;
     bottom: 0;
@@ -106,7 +105,7 @@
 
 .TextContainer .Down button i {
     margin-right: 10px;
-    font-size: 1.5rem;
+    font-size: .8rem;
     color: #fff;
 }
 
@@ -114,7 +113,7 @@
     text-decoration: none;
     color: #fff;
     font-family: "Russo One", sans-serif;
-    font-size: 1rem;
+    font-size: .6rem;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
