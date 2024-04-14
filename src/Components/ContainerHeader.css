@@ -128,7 +128,7 @@
     font-size: .80em;
     z-index: 1;
     transform: translateX(300px);
-    transition: transform 0.3s cubic-bezier(0.17.0.81, 0.38, 1.39);
+    transition: transform 0.3s cubic-bezier(0.17, 0.81, 0.38, 1.39);
 }
 
 .PerfilConatiner .MenuContainer::after {
@@ -174,7 +174,7 @@
     .InputBox input:focus {
         display: block;
         width: 200px;
-        transition: width 0.3s cubic-bezier(0.17.0.81, 0.38, 1.39);
+        transition: width 0.3s cubic-bezier(0.17, 0.81, 0.38, 1.39);
     }
 
     .InputBox .SearchIcon {

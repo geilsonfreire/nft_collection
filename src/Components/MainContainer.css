@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+.MainContainer {
+    width: 100%;
+    height: calc(100% - 40px);
+    display: flex;
+    padding-top: 1rem;
+}
+
+
+/* Latereal esquerda da pagina*/
+.MainContainer .left {
+    width: calc(100% - 30%);
+    overflow-y: scroll;
+    transition: all a.3s cubic-bezier(0.17, 0.81, 0.38, 1.39);
+}
+
+.MainContainer .left::-webkit-scrollbar {
+    display: none;
+}
+
+.MainContainer .left .Banner {
+    height: 200px;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.MainContainer .left .Banner .TextContainer {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
+    align-items: start;
+}
+
+.MainContainer .left .Banner .TextContainer h1 {
+    background-image: url(../Assets/imgs/Fogo.gif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 2px 5px 1px #fff;
+    color: transparent;
+    font-size: 2.5vw;
+    font-weight: 700;
+    font-family: "Russo One", sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 5px;
+    grid-column: 1 / span 2;
+}
+
+.MainContainer .left .Banner .TextContainer h2 {
+    font-size: 1.5vw;
+    font-family: "Russo One", sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 5px;
+    color: #00ff26;
+    text-shadow: 3px 1px 1px #000;
+}
+
+.MainContainer .left .Banner .TextContainer p {
+    font-size: .8em;
+    color: #fff;
+    font-family: "Russo One", sans-serif;
+}
+
+
+/* Botão de download*/
+.TextContainer .Down {
+    grid-column: 1 / span 2;
+}
+
+.TextContainer .Down button {
+    border: solid 1px #fff;
+    cursor: pointer;
+    outline: none;
+    background-image: linear-gradient(45deg, #101113, #231824);
+    padding: .6rem;
+    border-radius: 10px;
+    
+}
+
+.TextContainer .Down button::after {
+    content: "";
+    border-radius: 18px;
+    position: absolute;
+    margin: 4px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background: #0e0e10;
+}
+
+.TextContainer .Down button:hover {
+    background-image: linear-gradient(-45deg, #4568dc, #00ff26);
+    box-shadow: 0 12px 24px rgba(128, 128, 128, 0.1);
+}
+
+.TextContainer .Down button i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.TextContainer .Down button a {
+    text-decoration: none;
+    color: #fff;
+    font-family: "Russo One", sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+
+
+
+
+/* Lateral direita da pagina */
+.MainContainer .Right {
+    width: calc(100% - 70%);
+
+}

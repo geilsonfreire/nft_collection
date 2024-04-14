@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react"; // Import React
 import "./ContainerHeader.css"; // Import CSS
 import { BiSearchAlt2 } from "react-icons/bi"; // Import IconName from react-icons/bi
 import { FaBell, FaChevronDown } from "react-icons/fa"; // Import IconName from react-icons/fa
-import Geilson from "../Assets/Geilson.png"; // Import Image from Geilson.png
+import Geilson from "../Assets/imgs/Geilson.png"; // Import Image from Geilson.png
 
 
 // Create a functional component called ContainerHeader
