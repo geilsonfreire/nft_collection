@@ -8,9 +8,7 @@ function MainRightTopContainer() {
         <div className="MainRightTopContainer">
             <div className="TopTitle">
                 <h2>Estatísticas</h2>
-                <i><BsEye />
-                <a href="">Ver Mais</a>
-                </i>
+                <i><BsEye /><a href="">Ver Mais</a></i>
             </div> 
 
             <div className="EstatistGanhos">
@@ -18,7 +16,7 @@ function MainRightTopContainer() {
                 <p>Cancelados <span>5</span></p>
                 <p>Pendentes <span>25</span></p>
                 <p>Entregue <span>470</span></p>
-                <p>Ganhos <span>750 Eht</span></p>
+                <p>Total de Ganhos <span>750 Eht</span></p>
             </div>
 
         </div> /* End of the MainRightTopContainer component */

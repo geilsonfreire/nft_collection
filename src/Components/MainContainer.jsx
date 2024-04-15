@@ -93,7 +93,7 @@ function MainContainer() {
 
 
 
-            <div className="right">
+            <div className="Right">
                 <MainRightTopContainer />
                 <MainRightBottonContainer />     
             </div> {/* Container Geral direito */}
