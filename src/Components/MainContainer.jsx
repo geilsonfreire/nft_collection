@@ -6,6 +6,8 @@ import { LiaDownloadSolid } from "react-icons/lia"; // Import the LiaDownloadSol
 
 // imports das imagens dos cards
 import NFT1 from "../Assets/Nft_Img/nft1.jpg";
+import NFT2 from "../Assets/Nft_Img/nft2.jpg";
+import NFT3 from "../Assets/Nft_Img/nft3.jpg";
 
 
 
@@ -66,6 +68,8 @@ function MainContainer() {
 
                     <main>
                         <MainCardsContainer imgSrc={NFT1} title={"Princesa"} hearts = {"65"} />
+                        <MainCardsContainer imgSrc={NFT2} title={"Estudante"} hearts = {"85"} />
+                        <MainCardsContainer imgSrc={NFT3} title={"Vovó Pipica"} hearts = {"95"} />
                     </main>
 
                 </div>
