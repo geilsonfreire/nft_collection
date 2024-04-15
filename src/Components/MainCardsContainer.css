@@ -16,6 +16,7 @@ main .MainCardsContainer {
     flex-direction: column;
     justify-content: flex-end;
     height: 100%;
+    box-shadow: 0 0 2px #00ff26;
 }
 
 main .MainCardsContainer img {
