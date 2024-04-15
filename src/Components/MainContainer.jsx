@@ -1,8 +1,13 @@
 import React from "react"; // Import React
 import "./MainContainer.css"; // Import CSS
 import Banner from "../Assets/imgs/NFT.jpg"; // Import the banner image
-import Fogo from "../Assets/imgs/Fogo.gif"; // Import the fogo image
+import MainCardsContainer from "./MainCardsContainer"; // Import the MainCardsContainer component
 import { LiaDownloadSolid } from "react-icons/lia"; // Import the LiaDownloadSolid icon
+
+// imports das imagens dos cards
+import NFT1 from "../Assets/Nft_Img/nft1.jpg";
+
+
 
 // Function to create the MainContainer component
 function MainContainer() {
@@ -44,17 +49,25 @@ function MainContainer() {
                                     <a href="">Populares</a>
                                 </button>
                                 <button>
-                                    <a href="">Inlustrados</a>
+                                    <a href="">Personagens</a>
                                 </button>
                                 <button>
-                                    <a href="">Artistocos</a>
+                                    <a href="">Objetos</a>
                                 </button>
                                 <button>
-                                    <a href="">Games</a>
+                                    <a href="">Flores</a>
+                                </button>
+                                <button>
+                                    <a href="">Veículos</a>
                                 </button>
                             </div>
                         </div>
-                    </div>    
+                    </div>   {/* Container dos Filtros */}
+
+                    <main>
+                        <MainCardsContainer imgSrc={NFT1} title={"Princesa"} hearts = {"65"} />
+                    </main>
+
                 </div>
 
             </div> {/* Container Geral esquerdo */}
