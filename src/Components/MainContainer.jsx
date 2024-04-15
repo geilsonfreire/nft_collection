@@ -3,11 +3,20 @@ import "./MainContainer.css"; // Import CSS
 import Banner from "../Assets/imgs/NFT.jpg"; // Import the banner image
 import MainCardsContainer from "./MainCardsContainer"; // Import the MainCardsContainer component
 import { LiaDownloadSolid } from "react-icons/lia"; // Import the LiaDownloadSolid icon
+import MainRightTopContainer from "./MainRightTopContainer";
+import MainRightBottonContainer from "./MainRightBottonContainer";
 
 // imports das imagens dos cards
 import NFT1 from "../Assets/Nft_Img/nft1.jpg";
 import NFT2 from "../Assets/Nft_Img/nft2.jpg";
 import NFT3 from "../Assets/Nft_Img/nft3.jpg";
+import NFT4 from "../Assets/Nft_Img/nft4.jpg";
+import NFT5 from "../Assets/Nft_Img/nft5.jpg";
+import NFT6 from "../Assets/Nft_Img/nft6.jpg";
+import NFT7 from "../Assets/Nft_Img/nft7.jpg";
+import NFT8 from "../Assets/Nft_Img/nft8.jpg";
+import NFT9 from "../Assets/Nft_Img/nft9.jpg";
+
 
 
 
@@ -70,6 +79,12 @@ function MainContainer() {
                         <MainCardsContainer imgSrc={NFT1} title={"Princesa"} hearts = {"65"} />
                         <MainCardsContainer imgSrc={NFT2} title={"Estudante"} hearts = {"85"} />
                         <MainCardsContainer imgSrc={NFT3} title={"Vovó Pipica"} hearts = {"95"} />
+                        <MainCardsContainer imgSrc={NFT4} title={"Família"} hearts = {"90"} />
+                        <MainCardsContainer imgSrc={NFT5} title={"Casal Feliz"} hearts = {"92"} />
+                        <MainCardsContainer imgSrc={NFT6} title={"Nas Nuvens"} hearts = {"52"} />
+                        <MainCardsContainer imgSrc={NFT7} title={"Realidade virtual"} hearts = {"62"} />
+                        <MainCardsContainer imgSrc={NFT8} title={"Cubo virtual"} hearts = {"72"} />
+                        <MainCardsContainer imgSrc={NFT9} title={"Notorio"} hearts = {"82"} />
                     </main>
 
                 </div>
@@ -78,7 +93,11 @@ function MainContainer() {
 
 
 
-            <div className="right"></div>
+            <div className="right">
+                <MainRightTopContainer />
+                <MainRightBottonContainer />     
+            </div> {/* Container Geral direito */}
+
         </div> // Container geral
     );
 }

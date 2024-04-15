@@ -1,7 +1,8 @@
 main {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 main .MainCardsContainer {
@@ -19,6 +20,7 @@ main .MainCardsContainer {
     justify-content: space-between;
     height: 100%;
     box-shadow: 0 0 2px #00ff26;
+    flex: 0 0 calc(33.33% - 20px);
 }
 
 main .MainCardsContainer img {
@@ -47,10 +49,6 @@ main .MainCardsContainer a {
     letter-spacing: 2px;
 }
 
-main .MainCardsContainer a span {
-    filter: none;
-}
-
 .MainCardsContainer .CardsName {
     display: flex;
     align-items: center;
@@ -60,11 +58,12 @@ main .MainCardsContainer a span {
 }
 
 .MainCardsContainer .CardsName h2 {
-    font-size: 1rem;
+    font-size: .6rem;
     font-weight: bold;
     letter-spacing: 2px;
     color: #fff;
-    border-bottom: solid 1px #00ff26;
+    border-bottom: solid .5px #00ff26;
+    border-bottom-left-radius: 5px;
 }
 
 .MainCardsContainer .CardsName .CardsIcon {
@@ -83,6 +82,7 @@ main .MainCardsContainer a span {
     color: #fff;
     font-size: 0.5rem;
     letter-spacing: 2px;
+    margin-left: .3rem;
 }
 
 .MainCardsContainer .CardsStatus {
@@ -107,9 +107,6 @@ main .MainCardsContainer a span {
     color: #00ff26;
 
 }
-
-
-
 
 
 
@@ -160,6 +157,7 @@ main .MainCardsContainer a span {
     font-size: .5rem;
     text-transform: uppercase;
     letter-spacing: 2PX;
+    color: #fff;
 }
 
 .MainCardsContainer .CardsButton button.SobreButton:hover {
