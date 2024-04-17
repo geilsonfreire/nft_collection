@@ -1,10 +1,11 @@
 import React from "react"; // Import React
 import "./MainCardsContainer.css"; // Import CSS
-import { BsHeartFill, BsEye } from "react-icons/bs";
+import { BsHeartFill, BsEye } from "react-icons/bs";  // Import the BsHeartFill and BsEye icons
+import { LiaDownloadSolid } from "react-icons/lia"; // Import the LiaDownloadSolid icon
 
 
 // Function to create the MainCardsContainer component
-function MainCardsContainer({imgSrc, title, hearts}) {
+function MainCardsContainer({ imgSrc, title, hearts }) {
     return (
         <div className="MainCardsContainer">
             <i><BsEye /><a href="https://www.freepik.com/free-ai-image/3d-portrait-happy-family_66108139.htm#from_view=detail_asolikle">Image by freepik</a></i>
@@ -24,12 +25,13 @@ function MainCardsContainer({imgSrc, title, hearts}) {
             </div>
 
             <div className="CardsButton">
-                <button className="LanceButton">
-                    <a href="">Lance</a>
-                </button>
-                <button className="SobreButton">
-                    <a href="">Sobre</a>
-                </button>
+                <a href="" className="LanceButton">
+                    Lance
+                </a>
+
+                <a href={imgSrc} download className="SobreButton">
+                    <LiaDownloadSolid /> &nbsp;  Baixar
+                </a>
             </div>
 
         </div>

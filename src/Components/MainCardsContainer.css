@@ -118,54 +118,45 @@ main .MainCardsContainer a {
 
 }
 
-.MainCardsContainer .CardsButton button {
+.MainCardsContainer .CardsButton a {
     display: flex;
     align-items: center;
     justify-content: center;
     border: solid 1px #fff;
-    outline: none;
-    padding: .2rem 1rem;
-}
-
-.MainCardsContainer .CardsButton button.LanceButton {
-    background: #00ff26;
     border-radius: 5px;
-    cursor: pointer;
-}
-
-.MainCardsContainer .CardsButton button.LanceButton:hover {
-    background: #fff;
-}
-
-.MainCardsContainer .CardsButton button.LanceButton a {
-    color: #000;
-    font-size: .5rem;
+    width: 4rem;
+    height: 1rem;
     text-transform: uppercase;
     letter-spacing: 2PX;
 }
 
-.MainCardsContainer .CardsButton button.SobreButton {
+.MainCardsContainer .CardsButton a.LanceButton {
+    font-size: .5rem;
+    background: #00ff26;
+    color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.MainCardsContainer .CardsButton a.LanceButton:hover {
+    background: #fff;
+}
+
+.MainCardsContainer .CardsButton a.SobreButton {
+    font-size: .4rem;
     background: transparent;
     border: none;
     border-bottom: solid 1px #00ff26;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.MainCardsContainer .CardsButton button.SobreButton a {
-    font-size: .5rem;
-    text-transform: uppercase;
-    letter-spacing: 2PX;
     color: #fff;
 }
 
-.MainCardsContainer .CardsButton button.SobreButton:hover {
+.MainCardsContainer .CardsButton a.SobreButton:hover {
     background: #fff;
-}
-
-.MainCardsContainer .CardsButton button.SobreButton a:hover {
     color: #000;
 }
+
 
 /* Aplicando MediaQuery */
 @media only screen and (max-width: 525px) {
@@ -252,23 +243,16 @@ main .MainCardsContainer a {
     }
 
     /* Button do crads*/
-    .MainCardsContainer .CardsButton {
-        padding: 0 2rem;
+    .MainCardsContainer .CardsButton a {
+        width: 8rem;
+        height: 2rem;
     }
 
-    .MainCardsContainer .CardsButton button.LanceButton a {
-        font-size: 1rem;
+    .MainCardsContainer .CardsButton a.LanceButton {
+        font-size: 1.2rem;
     }
 
-    .MainCardsContainer .CardsButton button.SobreButton {
-        background: transparent;
-        border: none;
-        border-bottom: solid 1px #00ff26;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .MainCardsContainer .CardsButton button.SobreButton a {
+    .MainCardsContainer .CardsButton a.SobreButton {
         font-size: 1rem;
     }
 
