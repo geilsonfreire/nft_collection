@@ -1,11 +1,25 @@
-import React from "react"; // Import React
+import React, { useState } from "react"; // Import React
 import "./MainCardsContainer.css"; // Import CSS
-import { BsHeartFill, BsEye } from "react-icons/bs";  // Import the BsHeartFill and BsEye icons
+import { BsHeartFill, BsHeart, BsEye } from "react-icons/bs";  // Import the BsHeartFill and BsEye icons
 import { LiaDownloadSolid } from "react-icons/lia"; // Import the LiaDownloadSolid icon
 
 
 // Function to create the MainCardsContainer component
-function MainCardsContainer({ imgSrc, title, hearts }) {
+function MainCardsContainer({ imgSrc, title, hearts: inicialHearts }) {
+    // Im´lementar regras de curtir e descurtir nos crads
+    const [hearts, setHearts] = useState(parseInt(inicialHearts)); // Definindo o estado do icon de coração
+    const [liked, setLiked] = useState(false); // Definindo o estado do icon de coração
+
+    const Like = () => {
+        if (liked) {
+            setHearts(hearts - 1);
+        } else {
+            setHearts(hearts + 1);
+        }
+        setLiked(!liked);
+    }; // Função para curtir e descurtir
+
+
     return (
         <div className="MainCardsContainer">
             <i><BsEye /><a href="https://www.freepik.com/free-ai-image/3d-portrait-happy-family_66108139.htm#from_view=detail_asolikle">Image by freepik</a></i>
@@ -15,7 +29,9 @@ function MainCardsContainer({ imgSrc, title, hearts }) {
                 <h2>{title}</h2>
 
                 <div className="CardsIcon">
-                    <i> {""} <BsHeartFill /> <span> {hearts} </span>{""} </i>
+                    <i onClick={Like}> 
+                        {liked ? <BsHeartFill color="#00ff26"/> : <BsHeart />} <span> {hearts} </span>
+                    </i>
                 </div>
             </div>
 

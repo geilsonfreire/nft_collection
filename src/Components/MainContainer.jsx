@@ -91,29 +91,29 @@ function MainContainer() {
                     </div>   {/* Container dos Filtros */}
 
                     <main>
-                        <MainCardsContainer imgSrc={nft1} title={"Princesa"} hearts = {"65"} />
-                        <MainCardsContainer imgSrc={nft2} title={"Estudante"} hearts = {"85"} />
-                        <MainCardsContainer imgSrc={nft3} title={"Vovó Pipica"} hearts = {"95"} />
-                        <MainCardsContainer imgSrc={nft4} title={"Família"} hearts = {"90"} />
-                        <MainCardsContainer imgSrc={nft5} title={"Casal Feliz"} hearts = {"92"} />
-                        <MainCardsContainer imgSrc={nft6} title={"Nas Nuvens"} hearts = {"52"} />
-                        <MainCardsContainer imgSrc={nft7} title={"Realidade virtual"} hearts = {"62"} />
-                        <MainCardsContainer imgSrc={nft8} title={"Cubo virtual"} hearts = {"72"} />
-                        <MainCardsContainer imgSrc={nft9} title={"Notorio"} hearts = {"82"} />
-                        <MainCardsContainer imgSrc={nft10} title={"Flor Cristal"} hearts = {"81"} />
-                        <MainCardsContainer imgSrc={nft11} title={"Flor buque"} hearts={"71"} />
-                        <MainCardsContainer imgSrc={nft12} title={"Flor Vidro"} hearts={"61"} />
-                        <MainCardsContainer imgSrc={nft13} title={"EsferoTec"} hearts={"51"} />
-                        <MainCardsContainer imgSrc={nft14} title={"Entrelaçado"} hearts={"62"} />
-                        <MainCardsContainer imgSrc={nft15} title={"Oculos Futurista"} hearts={"41"} />
-                        <MainCardsContainer imgSrc={nft16} title={"RosaLinna"} hearts={"83"} />
-                        <MainCardsContainer imgSrc={nft17} title={"Flor"} hearts={"73"} />
-                        <MainCardsContainer imgSrc={nft18} title={"Rosa"} hearts={"63"} />
-                        <MainCardsContainer imgSrc={nft19} title={"Ferrary"} hearts={"53"} />
-                        <MainCardsContainer imgSrc={nft20} title={"Lamborguine"} hearts={"43"} />
-                        <MainCardsContainer imgSrc={nft21} title={"Lamb"} hearts={"75"} />
-                        <MainCardsContainer imgSrc={nft22} title={"SUper CAr"} hearts={"85"} />
-                        <MainCardsContainer imgSrc={nft23} title={"Carro"} hearts={"95"} />
+                        <MainCardsContainer imgSrc={nft1} title={"Princesa"} hearts = {"0"} />
+                        <MainCardsContainer imgSrc={nft2} title={"Estudante"} hearts = {"0"} />
+                        <MainCardsContainer imgSrc={nft3} title={"Vovó Pipica"} hearts = {"0"} />
+                        <MainCardsContainer imgSrc={nft4} title={"Família"} hearts = {"0"} />
+                        <MainCardsContainer imgSrc={nft5} title={"Casal Feliz"} hearts = {"0"} />
+                        <MainCardsContainer imgSrc={nft6} title={"Nas Nuvens"} hearts = {"0"} />
+                        <MainCardsContainer imgSrc={nft7} title={"Realidade virtual"} hearts = {"0"} />
+                        <MainCardsContainer imgSrc={nft8} title={"Cubo virtual"} hearts = {"0"} />
+                        <MainCardsContainer imgSrc={nft9} title={"Notorio"} hearts = {"00"} />
+                        <MainCardsContainer imgSrc={nft10} title={"Flor Cristal"} hearts = {"0"} />
+                        <MainCardsContainer imgSrc={nft11} title={"Flor buque"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft12} title={"Flor Vidro"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft13} title={"EsferoTec"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft14} title={"Entrelaçado"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft15} title={"Oculos Futurista"} hearts={"00"} />
+                        <MainCardsContainer imgSrc={nft16} title={"RosaLinna"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft17} title={"Flor"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft18} title={"Rosa"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft19} title={"Ferrary"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft20} title={"Lamborguine"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft21} title={"Lamb"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft22} title={"SUper CAr"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft23} title={"Carro"} hearts={"0"} />
                     </main>
 
                 </div>
