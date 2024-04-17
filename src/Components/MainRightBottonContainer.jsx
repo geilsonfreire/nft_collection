@@ -1,7 +1,7 @@
 import React from "react"; // Import React
 import "./MainRightBottonContainer.css"; // Import CSS
 import { BsEye } from "react-icons/bs"; // Import the BsEye icon
-import Perfil_Import_IMG from "./Perfil_Import_IMG"; // Import the Perfil_Import_IMG component
+import Perfil_Import_IMG from "./Img_Imports"; // Import the Perfil_Import_IMG component
 
 // Function to create the MainRightBottonContainer component
 function MainRightBottonContainer() {

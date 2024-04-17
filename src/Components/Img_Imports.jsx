@@ -17,4 +17,5 @@ const Perfil_Import_IMG = [
     {id: 6, PerfilName: "Maycon Lennon", UserName: "@MayconLennon", ImgSrc: Perfil6},
 ] 
 
+
 export default Perfil_Import_IMG; // Export the Perfil_Import_IMG component
