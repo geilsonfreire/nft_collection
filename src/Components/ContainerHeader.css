@@ -45,9 +45,9 @@
     color: #fff;
     font-size: 1em;
     width: 40px;
-    height: 45px;
+    height: 2rem;
     text-align: center;
-    line-height: 2rem
+    line-height: 2rem;
 }
 
 /* Perfil Container */
@@ -90,6 +90,7 @@
     text-align: center;
     line-height: 2.5rem;
     overflow: hidden;
+    margin-left: 1rem;
 }
 
 .PerfilConatiner .PerfilImg img {
@@ -109,6 +110,7 @@
     cursor: pointer;
     font-size: .7em;
     padding-top: 10px;
+    margin-left: 1rem;
     padding-bottom: 0;
     transition: transform 0.3s ease;
 }
@@ -170,7 +172,7 @@
     .InputBox input {
         width: 0;
     }
-    
+
     .InputBox input:focus {
         display: block;
         width: 200px;
@@ -179,8 +181,6 @@
 
     .InputBox .SearchIcon {
         font-size: 1rem;
-        top: 37px;
-        left: 80px;
     }
 
 
@@ -196,4 +196,54 @@
     .PerfilConatiner .PerfilName {
         font-size: .50em;
     }
-} 
+}
+
+@media only screen and (min-width: 526px) and (max-width: 900px) {
+    .InputBox {
+        height: 3rem;
+    }
+
+    .InputBox .SearchIcon {
+        font-size: 1.5em;
+        width: 40px;
+        height: 3rem;
+        line-height: 3rem;
+    }
+
+    /* Perfil Container */
+    .PerfilConatiner .NotifiqueIcon {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+        line-height: 3rem;
+    }
+
+    .PerfilConatiner .NotifiqueIcon::before {
+        width: 8px;
+        height: 8px;
+    }
+
+
+    .PerfilConatiner .NotifiqueIcon::before {
+        right: 7px;
+    }
+
+    .PerfilConatiner .PerfilImg {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .PerfilConatiner .PerfilName {
+        font-size: 1em;
+    }
+
+    .PerfilConatiner .MenuChevron {
+        font-size: 1em;
+    }
+
+    /* Menu DropDown */
+    .PerfilConatiner .MenuContainer ul li {
+        font-size: 1rem;
+
+    }
+}

@@ -97,3 +97,69 @@
     font-size: .5rem;
     letter-spacing: 1PX;
 }
+
+/* Aplicando MediaQuery */
+@media only screen and (max-width: 525px) {
+
+    /* Titolu do bottom do container direito */
+    .MainRightBottonContainer .titleBottomName h2 {
+        font-size: 1rem;
+    }
+
+    .MainRightBottonContainer .titleBottomName i {
+        font-size: 1rem;
+    }
+
+    .MainRightBottonContainer .titleBottomName a {
+        font-size: 1rem;
+    }
+
+    /* Seção do perfil dos vendedores */
+    .MainRightBottonContainer .PerfilVendedor .PerfilVendedorImg {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    /* Botões de perfil */
+    .MainRightBottonContainer .PerfilVendedor .PerfilButton a {
+        color: #000;
+        font-size: .8rem;
+    }
+
+}
+
+@media only screen and (min-width: 526px) and (max-width: 900px) {
+
+    /* Titolu do bottom do container direito */
+    .MainRightBottonContainer .titleBottomName h2 {
+        font-size: 2rem;
+    }
+
+    .MainRightBottonContainer .titleBottomName i {
+        font-size: 2rem;
+    }
+
+    .MainRightBottonContainer .titleBottomName a {
+        font-size: 2rem;
+    }
+
+    /* Seção do perfil dos vendedores */
+    .MainRightBottonContainer .PerfilVendedor .PerfilVendedorImg {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .MainRightBottonContainer .PerfilVendedor .NomeVendedor {
+        font-size: 2rem;
+    }
+
+    .MainRightBottonContainer .PerfilVendedor .NomeVendedor span {
+        font-size: 1rem;
+    }
+
+    /* Botões de perfil */
+    .MainRightBottonContainer .PerfilVendedor .PerfilButton a {
+        font-size: 1rem;
+    }
+
+}

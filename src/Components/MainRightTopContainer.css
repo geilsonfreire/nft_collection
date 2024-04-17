@@ -58,7 +58,7 @@
     border-bottom-right-radius: 10px;
 }
 
-.MainRightTopContainer .EstatistGanhos p:nth-child(5){
+.MainRightTopContainer .EstatistGanhos p:nth-child(5) {
     background: #00ff26;
     color: #000;
     border-top-left-radius: 20px;
@@ -75,4 +75,64 @@
 .MainRightTopContainer .EstatistGanhos p:last-child span {
     color: #000;
     font-size: 1vw;
+}
+
+
+/* Aplicando MediaQuery*/
+@media only screen and (max-width: 525px) {
+    /* Titolu do container */
+    .MainRightTopContainer .TopTitle h2 {
+        font-size: 1.5rem;
+    }
+
+    .MainRightTopContainer .TopTitle i {
+        font-size: 1rem;
+    }
+
+    .MainRightTopContainer .TopTitle a {
+        font-size: 1rem;
+    }
+
+    /* Corpo do container card EstatistGanhos*/
+    .MainRightTopContainer .EstatistGanhos p {
+        font-size: 1rem;
+    }
+
+    .MainRightTopContainer .EstatistGanhos p span {
+        font-size: 1rem;
+    }
+
+    .MainRightTopContainer .EstatistGanhos p:last-child span {
+        font-size: 1rem;
+    }
+
+}
+
+@media only screen and (min-width: 526px) and (max-width: 900px){
+    /* Titolu do container */
+    .MainRightTopContainer .TopTitle h2 {
+        font-size: 2rem;
+    }
+
+    .MainRightTopContainer .TopTitle i {
+        font-size: 2rem;
+    }
+
+    .MainRightTopContainer .TopTitle a {
+        font-size: 2rem;
+    }
+
+    /* Corpo do container card EstatistGanhos*/
+    .MainRightTopContainer .EstatistGanhos p {
+        font-size: 1.5rem;
+    }
+
+    .MainRightTopContainer .EstatistGanhos p span {
+        font-size: 2rem;
+    }
+
+    .MainRightTopContainer .EstatistGanhos p:last-child span {
+        font-size: 2rem;
+    }
+
 }

@@ -10,14 +10,15 @@ menu {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-} 
+    position: sticky;
+    top: 0;
+}
 
 menu img {
     width: 3rem;
     margin-top: 2rem;
     border-radius: 50%;
-    border: 2px solid #00ff26; 
+    border: 2px solid #00ff26;
     cursor: pointer;
     transition: all 0.3s;
 }
@@ -63,7 +64,7 @@ menu ul li a::before {
     height: 5px;
     background: transparent;
     border-bottom: 1px solid #fff;
-    
+
 }
 
 menu ul li a:hover {
@@ -72,7 +73,7 @@ menu ul li a:hover {
 
 menu ul li a:hover a::before {
     width: 1.8rem;
-    transition: all 0.3s; 
+    transition: all 0.3s;
 }
 
 menu ul li.active a {
@@ -81,7 +82,7 @@ menu ul li.active a {
 
 menu ul li.active a::before {
     width: 1.2rem;
-    transition: all 0.3s; 
+    transition: all 0.3s;
 }
 
 .lasttMenu {
@@ -92,8 +93,29 @@ menu ul li.active a::before {
 /* Midia Query screen */
 @media only screen and (max-width: 525px) {
     menu {
-        min-width: 68px; 
-        width: 68px; 
+        min-width: 68px;
+        width: 68px;
+    }
+
+}
+
+@media only screen and (min-width: 526px) and (max-width: 900px) {
+    menu ul li a {
+        font-size: 2rem;
+    }
+
+    menu ul li a::before {
+        top: 25px;
+    }
+
+    menu ul li a:hover a::before {
+        width: 8rem;
+        transition: all 0.3s;
+    }
+
+    menu ul li.active a::before {
+        width: 2rem;
+        transition: all 0.3s;
     }
 
 }

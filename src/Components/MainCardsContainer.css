@@ -166,3 +166,110 @@ main .MainCardsContainer a {
 .MainCardsContainer .CardsButton button.SobreButton a:hover {
     color: #000;
 }
+
+/* Aplicando MediaQuery */
+@media only screen and (max-width: 525px) {
+    main .MainCardsContainer {
+        max-width: 100%;
+        min-width: 100%;
+        max-height: 100%;
+        min-height: 100%;
+        margin: 1rem auto;
+    }
+
+    /* Creditos*/
+    main .MainCardsContainer i {
+        font-size: 1rem;
+    }
+
+    main .MainCardsContainer a {
+        font-size: 1rem;
+    }
+
+    /* Txt Cards*/
+    .MainCardsContainer .CardsName h2 {
+        font-size: 1rem;
+    }
+
+    .MainCardsContainer .CardsName .CardsIcon i {
+        font-size: 1rem;
+    }
+
+    .MainCardsContainer .CardsName .CardsIcon i span {
+        color: #fff;
+        font-size: .8rem;
+    }
+
+    .MainCardsContainer .CardsStatus p {
+        font-size: .7rem;
+    }
+
+    .MainCardsContainer .CardsStatus p span {
+        font-size: .6rem;
+
+    }
+}
+
+@media only screen and (min-width: 526px) and (max-width: 900px) {
+    main .MainCardsContainer {
+        max-width: 100%;
+        min-width: 100%;
+        max-height: 100%;
+        min-height: 100%;
+        margin: 1rem auto;
+    }
+
+    /* Creditos*/
+    main .MainCardsContainer i {
+        font-size: 1.2rem;
+    }
+
+    main .MainCardsContainer a {
+        font-size: 1rem;
+    }
+
+    /* Txt Cards*/
+    .MainCardsContainer .CardsName h2 {
+        font-size: 2rem;
+    }
+
+    .MainCardsContainer .CardsName .CardsIcon i {
+        font-size: 2rem;
+    }
+
+    .MainCardsContainer .CardsName .CardsIcon i span {
+        color: #fff;
+        font-size: 1rem;
+    }
+
+    .MainCardsContainer .CardsStatus p {
+        font-size: 1rem;
+    }
+
+    .MainCardsContainer .CardsStatus p span {
+        font-size: 1rem;
+
+    }
+
+    /* Button do crads*/
+    .MainCardsContainer .CardsButton {
+        padding: 0 2rem;
+    }
+
+    .MainCardsContainer .CardsButton button.LanceButton a {
+        font-size: 1rem;
+    }
+
+    .MainCardsContainer .CardsButton button.SobreButton {
+        background: transparent;
+        border: none;
+        border-bottom: solid 1px #00ff26;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .MainCardsContainer .CardsButton button.SobreButton a {
+        font-size: 1rem;
+    }
+
+}
