@@ -1,6 +1,6 @@
 import React, {useEffect} from "react"; 
 import "./Menu.css"; /* import the Menu.css file */
-import Logo from "../Assets/imgs/logo.gif"; /* import the logo.gif file */
+import Logo from "../../Assets/imgs/logo.gif"; /* import the logo.gif file */
 import { 
     FaDelicious, 
     FaShoppingCart, 

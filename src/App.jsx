@@ -1,6 +1,6 @@
 import "./App.css"; // Importing CSS file
-import Menu from "./Components/Menu"; // Importing Menu component
-import Container from "./Components/Container"; // Importing Container component
+import Menu from "./Components/Panel/Menu"; // Importing Menu component
+import Container from "./Components/Panel/Container"; // Importing Container component
 
 function App() {
   return (

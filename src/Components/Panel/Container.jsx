@@ -1,7 +1,7 @@
 import React from 'react'; // Import React
 import './Container.css'; // Import CSS
-import ContainerHeader from './ContainerHeader'; // Import ContainerHeader component
-import MainContainer from './MainContainer'; // Import MainContainer component
+import ContainerHeader from '../Panel/ContainerHeader'; // Import ContainerHeader component
+import MainContainer from '../Panel/MainContainer'; // Import MainContainer component
 
 // Create a functional component called Container
 function Container() {
