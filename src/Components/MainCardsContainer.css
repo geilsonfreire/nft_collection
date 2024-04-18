@@ -17,7 +17,6 @@ main .MainCardsContainer {
     margin: 15px 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 100%;
     box-shadow: 0 0 2px #00ff26;
     flex: 0 0 calc(33.33% - 20px);
@@ -25,20 +24,20 @@ main .MainCardsContainer {
 
 main .MainCardsContainer img {
     max-width: 100%;
-    min-height: 40%;
+    height: 10rem;
     min-width: 100%;
-    max-height: 40%;
     object-fit: cover;
     border-radius: 5px;
 }
 
-main .MainCardsContainer i {
+main .MainCardsContainer .Creditos {
     display: flex;
     align-items: center;
     justify-content: start;
     color: #fff;
     font-size: .8rem;
     margin: 0 1rem;
+    
 }
 
 main .MainCardsContainer a {
@@ -90,7 +89,7 @@ main .MainCardsContainer a {
     column-rule: solid 1px #00ff26;
     text-align: center;
     gap: 1em;
-    margin: 15px 0;
+    margin: 2rem 0;
 }
 
 .MainCardsContainer .CardsStatus p {
@@ -169,7 +168,7 @@ main .MainCardsContainer a {
     }
 
     /* Creditos*/
-    main .MainCardsContainer i {
+    main .MainCardsContainer .Creditos {
         font-size: 1rem;
     }
 
@@ -211,7 +210,7 @@ main .MainCardsContainer a {
     }
 
     /* Creditos*/
-    main .MainCardsContainer i {
+    main .MainCardsContainer .Creditos {
         font-size: 1.2rem;
     }
 

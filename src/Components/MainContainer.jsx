@@ -1,11 +1,10 @@
-import React from "react"; // Import React
+import React, { useEffect, useState, useRef } from "react"; // Import React
 import "./MainContainer.css"; // Import CSS
-import Banner from "../Assets/imgs/NFT.jpg"; // Import the banner image
 import MainCardsContainer from "./MainCardsContainer"; // Import the MainCardsContainer component
-import { LiaDownloadSolid } from "react-icons/lia"; // Import the LiaDownloadSolid icon
-import MainRightTopContainer from "./MainRightTopContainer";
-import MainRightBottonContainer from "./MainRightBottonContainer";
-import IMGs from "./Img_Imports"; // Import the Img_Imports component
+import MainRightTopContainer from "./MainRightTopContainer"; // Import the MainRightTopContainer component
+import MainRightBottonContainer from "./MainRightBottonContainer"; // Import the MainRightBottonContainer component
+import { motion } from "framer-motion" // Import motion from framer-motion
+
 
 // import img cardsNFT
 import nft1 from "../Assets/Nft_Img/nft1.jpg"
@@ -32,36 +31,65 @@ import nft21 from "../Assets/Nft_Img/nft21.jpg"
 import nft22 from "../Assets/Nft_Img/nft22.jpg"
 import nft23 from "../Assets/Nft_Img/nft23.jpg"
 
-
+// Criando um array com as img nft para adicionar ao banner
+const Banner = [nft1, nft2, nft3, nft4, nft5, nft6, nft7, nft8, nft9, nft10]
 
 
 // Function to create the MainContainer component
 function MainContainer() {
+    // Aplicando regras de slide no banner
+    const slider = useRef(); // Criando uma referencia para o slider
+    const [width, setWidth] = useState(0); // Criando um estado para o width
+    const [currentSlide, setCurrentSlide] = useState(0); // Criando um estado para o slide atual
+    const totalSlides = Banner.length; // criando um contador para o total de slides
+
+    useEffect(() => {
+        console.log(
+            slider.current?.scrollWidth,
+            slider.current?.offsetWidth
+        ); // Verificar o tamanho do scrollWidth e offsetWidth
+
+        setWidth(
+            slider.current?.scrollWidth - slider.current?.offsetWidth
+        ); // Setar o width do slider
+
+    }, []); // UseEffect para aplicar as regras de slide no banner
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((currentSlide + 1) % totalSlides); // Muda o slide atual
+        }, 3000); // Muda a imagem a cada 3 segundos
+
+        return () => clearInterval(timer); // Limpa o intervalo quando o componente é desmontado
+    }, [currentSlide, totalSlides]);
+
+
+
     return (
         <div className="MainContainer">
             <div className="left">
-                <div className="Banner" style={{
-                    background: `url(${Banner})`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center"}}>
-
+                <motion.div className="Banner" >
+                    <motion.div ref={slider} className="BannerImg"
+                        whileTap={{ cursor: "grabbing" }}
+                        drag="x"
+                        dragConstraints={{ right: 0, left: -width}}
+                        style={{ x: -currentSlide * (slider.current?.offsetWidth || 0) }}
+                        /* initial={{ x: 100 }} */
+                        /* animate={{ x: 0 }} */
+                        transition={{ ease: "easeOut", duration: 1}}
+                    > 
+                        {Banner.map(imglist => (
+                            <motion.div className="ImgItem" key={imglist}>
+                                <img src={imglist} alt="NFT Coleção" />
+                            </motion.div>
+                        ))}
+                    </motion.div>
                     <div className="TextContainer">
-                        <h1>Destaque do dia</h1>
+                        <h1>Destaques do dia</h1>
                         <h2>1.5 ETH</h2>
                         <p>Com mais de 3.5 milhões downloads</p>
-                        <div className="Down">
-                            <button className="Button">
-                                <i className="ButtonDown">
-                                    <LiaDownloadSolid />
-                                </i>
-                                <a href="" className="ButtonDown">
-                                    Downloade
-                                </a>
-                            </button>
-                        </div>
                     </div>
-                </div>
+                </motion.div> {/* Container do Banner com motion*/}
 
                 <div className="ContainerCards">
                     <div className="Filters">
@@ -91,16 +119,16 @@ function MainContainer() {
                     </div>   {/* Container dos Filtros */}
 
                     <main>
-                        <MainCardsContainer imgSrc={nft1} title={"Princesa"} hearts = {"0"} />
-                        <MainCardsContainer imgSrc={nft2} title={"Estudante"} hearts = {"0"} />
-                        <MainCardsContainer imgSrc={nft3} title={"Vovó Pipica"} hearts = {"0"} />
-                        <MainCardsContainer imgSrc={nft4} title={"Família"} hearts = {"0"} />
-                        <MainCardsContainer imgSrc={nft5} title={"Casal Feliz"} hearts = {"0"} />
-                        <MainCardsContainer imgSrc={nft6} title={"Nas Nuvens"} hearts = {"0"} />
-                        <MainCardsContainer imgSrc={nft7} title={"Realidade virtual"} hearts = {"0"} />
-                        <MainCardsContainer imgSrc={nft8} title={"Cubo virtual"} hearts = {"0"} />
-                        <MainCardsContainer imgSrc={nft9} title={"Notorio"} hearts = {"00"} />
-                        <MainCardsContainer imgSrc={nft10} title={"Flor Cristal"} hearts = {"0"} />
+                        <MainCardsContainer imgSrc={nft1} title={"Princesa"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft2} title={"Amigos"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft3} title={"Vovó Pipica"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft4} title={"Família"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft5} title={"Casal Feliz"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft6} title={"Nas Nuvens"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft7} title={"Realidade virtual"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft8} title={"Cubo virtual"} hearts={"0"} />
+                        <MainCardsContainer imgSrc={nft9} title={"Notorio"} hearts={"00"} />
+                        <MainCardsContainer imgSrc={nft10} title={"Flor Cristal"} hearts={"0"} />
                         <MainCardsContainer imgSrc={nft11} title={"Flor buque"} hearts={"0"} />
                         <MainCardsContainer imgSrc={nft12} title={"Flor Vidro"} hearts={"0"} />
                         <MainCardsContainer imgSrc={nft13} title={"EsferoTec"} hearts={"0"} />
@@ -124,7 +152,7 @@ function MainContainer() {
 
             <div className="Right">
                 <MainRightTopContainer />
-                <MainRightBottonContainer />     
+                <MainRightBottonContainer />
             </div> {/* Container Geral direito */}
 
         </div> // Container geral

@@ -19,13 +19,51 @@
     display: none;
 }
 
+
+/* Banner*/
 .MainContainer .left .Banner {
-    height: 200px;
-    border-radius: 0.5rem;
-    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 60rem;
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
     position: relative;
+    cursor: grab;
+    border: solid 1px #00ff26;
 }
 
+.MainContainer .left .Banner .BannerImg {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s cubic-bezier(0.01, 0.85, 0.94, 0.42);
+}
+
+.MainContainer .left .Banner .BannerImg .ImgItem {
+    position: relative;
+    flex: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MainContainer .left .Banner .BannerImg .ImgItem img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+
+
+
+/* Txt sobre o Banner */
 .MainContainer .left .Banner .TextContainer {
     position: absolute;
     right: 20px;
@@ -34,17 +72,11 @@
     grid-template-rows: auto auto;
     grid-template-columns: auto auto;
     align-items: start;
+    /* background-color: #000; */
 }
 
 .MainContainer .left .Banner .TextContainer h1 {
-    background-image: url(../Assets/imgs/Fogo.gif);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-clip: text;
-    -webkit-background-clip: text;
-    text-shadow: 2px 5px 1px #fff;
-    color: transparent;
+    color: #00ff26;
     font-size: 2vw;
     font-weight: 700;
     font-family: "Russo One", sans-serif;
@@ -52,6 +84,7 @@
     text-transform: uppercase;
     margin: 5px;
     grid-column: 1 / span 2;
+    text-shadow: 3px 1px 1px #000;
 }
 
 .MainContainer .left .Banner .TextContainer h2 {
@@ -65,28 +98,10 @@
 }
 
 .MainContainer .left .Banner .TextContainer p {
-    font-size: .6vw;
-    color: #fff;
-}
-
-
-/* Botão de download*/
-.TextContainer .Down {
-    grid-column: 1 / span 2;
-}
-
-.TextContainer .Down button i.ButtonDown {
-    margin: 5px;
-    font-size: .8rem;
-    color: #fff;
-}
-
-.TextContainer .Down button a {
-    font-size: .6vw;
+    font-size: .8vw;
     font-family: "Russo One", sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
 }
 
 
@@ -204,17 +219,6 @@
         display: none;
     }
 
-    /* Botão de download*/
-    .TextContainer .Down button {
-        margin: 2px;
-        padding: 2px;
-    }
-
-    .TextContainer .Down button a {
-        font-size: .5rem;
-        margin-right: 10px;
-    }
-
     /* Cards Geral*/
     .ContainerCards .Filters {
         padding: 2px 0;
@@ -286,22 +290,6 @@
 
     }
 
-    /* Botão de download*/
-    .TextContainer .Down button {
-        margin: 4px;
-        padding: 4px;
-    }
-
-    .TextContainer .Down button i {
-        font-size: .8rem;
-        margin-right: 10px;
-    }
-
-    .TextContainer .Down button a {
-        font-size: .8rem;
-        margin-right: 10px;
-    }
-
     /* Cards Geral*/
     .ContainerCards .Filters {
         padding: 2px 0;
@@ -366,22 +354,6 @@
 
     }
 
-    /* Botão de download*/
-    .TextContainer .Down button {
-        margin: 4px;
-        padding: 4px;
-    }
-
-    .TextContainer .Down button i {
-        font-size: .8rem;
-        margin-right: 10px;
-    }
-    
-    .TextContainer .Down button a {
-        font-size: .8rem;
-        margin-right: 10px;
-    }
-
     /* Cards Geral*/
     .ContainerCards .Filters {
         padding: 2px 0;
@@ -405,7 +377,7 @@
     }
 
     .Populares .FilterButtons button {
-        padding:  0 1rem;
+        padding: 0 1rem;
     }
 
     .Populares .FilterButtons button a {

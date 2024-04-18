@@ -22,7 +22,7 @@ function MainCardsContainer({ imgSrc, title, hearts: inicialHearts }) {
 
     return (
         <div className="MainCardsContainer">
-            <i><BsEye /><a href="https://www.freepik.com/free-ai-image/3d-portrait-happy-family_66108139.htm#from_view=detail_asolikle">Image by freepik</a></i>
+            <i className="Creditos"><BsEye /><a href="https://www.freepik.com/free-ai-image/3d-portrait-happy-family_66108139.htm#from_view=detail_asolikle">Image by freepik</a></i>
             <img src={imgSrc} alt="NFT Coleção" />
 
             <div className="CardsName">
