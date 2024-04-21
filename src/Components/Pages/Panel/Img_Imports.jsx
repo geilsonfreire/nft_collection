@@ -1,10 +1,10 @@
 // Import Perfil_Img
-import Perfil1 from "../../Assets/Perfil_Img/Perfil1.png"
-import Perfil2 from "../../Assets/Perfil_Img/Perfil2.png"
-import Perfil3 from "../../Assets/Perfil_Img/Perfil3.png"
-import Perfil4 from "../../Assets/Perfil_Img/Perfil4.png"
-import Perfil5 from "../../Assets/Perfil_Img/Perfil5.png"
-import Perfil6 from "../../Assets/Perfil_Img/Perfil6.png"
+import Perfil1 from "../../../Assets/Perfil_Img/Perfil1.png"
+import Perfil2 from "../../../Assets/Perfil_Img/Perfil2.png"
+import Perfil3 from "../../../Assets/Perfil_Img/Perfil3.png"
+import Perfil4 from "../../../Assets/Perfil_Img/Perfil4.png"
+import Perfil5 from "../../../Assets/Perfil_Img/Perfil5.png"
+import Perfil6 from "../../../Assets/Perfil_Img/Perfil6.png"
 
 
 // Function to create the Perfil_Import_IMG component
