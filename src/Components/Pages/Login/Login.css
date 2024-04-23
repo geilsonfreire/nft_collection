@@ -161,6 +161,82 @@
     border-radius: 5px;
 }
 
+
+/* Ou */
+.Divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 1rem;
+    font-size: 1em;
+    color: #ffffff63;
+}
+
+.DividerLine {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.DividerText {
+    padding: 0 10px;
+    color: #777;
+}
+
+/* Redes Sociais */
+.SocialLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 30%;
+    height: 2rem;
+    margin: 1rem;
+}
+
+.BtnGoogleLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: 2rem;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    outline: none;
+}
+
+.BtnGoogleLogin:hover, .BtnFacebookLogin:hover {
+    border: solid 2px #00ff26;
+    filter: drop-shadow(0px 1px 1px rgba(226, 231, 227, 0.767));
+}
+
+.BtnFacebookLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: 2rem;
+    border: none;
+    border-radius: 5px;
+    background: #3b5998;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    outline: none;
+}
+
+.BtnFacebookLogin img {
+    width: 1.5rem;
+    height: 1.5rem;  
+}
+
 /* Criar Contar*/
 .LoginFooter {
     display: flex;
