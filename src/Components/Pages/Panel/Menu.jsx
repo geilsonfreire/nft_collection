@@ -26,12 +26,12 @@ function Menu() {
 
     return ( /* return menu latarel */
         <menu>
-            <Link to="/">
+            <Link to="/Home">
                 <img src={Logo} alt="Logo da pagina" />
             </Link>
 
             <ul id="mainMenu">
-                <Icon to="/" icon={<FaHome />} title="Home"/> {/* page Home */}
+                <Icon to="/Home" icon={<FaHome />} title="Home"/> {/* page Home */}
                 <Icon to="/" icon={<FaDelicious />} title="Dashboard"/> {/* page Dashboard */}
                 <Icon to="/" icon={<FaShoppingCart />} title="Produtos" /> {/* page Products */}
                 <Icon to="/" icon={<FaWallet />} title="Carteira" /> {/* page Wallet */}
@@ -39,8 +39,8 @@ function Menu() {
                 <Icon to="/" icon={<FaRegClock />} title="Histórico" /> {/* page History */}
             </ul>
             <ul className="lasttMenu">
-                <Icon icon={<FaCog />} title="Configurações" /> {/* page Settings */}
-                <Icon icon={<FaSignOutAlt />} title="Sair" /> {/* page Logout */}
+                <Icon to="/" icon={<FaCog />} title="Configurações" /> {/* page Settings */}
+                <Icon to="/" icon={<FaSignOutAlt />} title="Sair" /> {/* page Logout */}
             </ul>
         </menu>
     );
