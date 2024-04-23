@@ -1,4 +1,4 @@
-.LoginContainer {
+.RegisterContainer {
     display: flex;
     align-items: center;
     height: 100vh;
@@ -6,19 +6,19 @@
 }
 
 /* Left */
-.LoginContainer .LoginContainerLeft {
+.RegisterContainer .RegisterContainerLeft {
     width: 50%;
     height: 100%;
 }
 
-.LoginContainer .LoginContainerLeft img {
+.RegisterContainer .RegisterContainerLeft img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
 /* Right */
-.LoginContainer .LoginConatinerRight {
+.RegisterContainer .RegisterConatinerRight {
     width: 50%;
     height: 100%;
     display: flex;
@@ -27,7 +27,7 @@
     position: relative;
 }
 
-.LoginContainer .LoginConatinerRight .EntradaLogin {
+.RegisterContainer .RegisterConatinerRight .EntradaRegister {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,7 +41,7 @@
     -webkit-backdrop-filter: blur(3.5px);
 }
 
-.LoginContainer .LoginConatinerRight .EntradaLogin::before {
+.RegisterContainer .RegisterConatinerRight .EntradaRegister::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -54,7 +54,7 @@
 
 
 /* Header */
-.LoginContainer .LoginConatinerRight .LoginHeader {
+.RegisterContainer .RegisterConatinerRight .RegisterHeader {
     position: absolute;
     background: #00ff26;
     filter: drop-shadow(0px 2px 1px rgba(226, 231, 227, 0.767));
@@ -68,18 +68,18 @@
     align-items: center;
 }
 
-.LoginContainer .LoginConatinerRight .LoginHeader:hover {
+.RegisterContainer .RegisterConatinerRight .RegisterHeader:hover {
     background: #fff;
 }
 
 
-.LoginContainer .LoginConatinerRight .LoginHeader span {
+.RegisterContainer .RegisterConatinerRight .RegisterHeader span {
     position: absolute;
     width: 100%;
     height: 10%;
-    margin-top: 1rem;
+    margin-top: .5rem;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
@@ -87,7 +87,7 @@
 }
 
 /* Form */
-.FormLogin {
+.FormRegister {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,7 +95,7 @@
     width: 60%;
 }
 
-.FormLogin input {
+.FormRegister input {
     width: 100%;
     height: 2.5rem;
     margin: 0.5rem 0;
@@ -112,7 +112,7 @@
     outline: none;
 }
 
-.FormLogin input::placeholder {
+.FormRegister input::placeholder {
     color: #ffffff09;
     font-size: .8rem;
 }
@@ -134,7 +134,6 @@
 .FormLogin input[type="text"],
 .FormLogin input[type="password"] {
     padding-left: 1rem;
-    /* Adiciona espaço para o ícone */
 }
 
 /* Mostrar Senha */
@@ -169,7 +168,8 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    font-size: .6em;
+    margin-top: 1rem;
+    font-size: 1em;
     color: #ffffff63;
 }
 
@@ -179,7 +179,7 @@
 }
 
 /* Button */
-.BtnLogin {
+.BtnRegister {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -199,7 +199,7 @@
     outline: none;
 }
 
-.BtnLogin:hover {
+.BtnRegister:hover {
     background: #fff;
     color: #000;
     border-bottom: solid 2px #00ff26;
@@ -213,6 +213,7 @@
     justify-content: center;
     align-items: center;
     width: 90%;
+ 
     font-size: 1em;
     color: #ffffff63;
 }
@@ -229,17 +230,16 @@
 }
 
 /* Redes Sociais */
-.SocialLogin {
+.SocialRegister {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     width: 30%;
     height: 2rem;
-   
 }
 
-.BtnGoogleLogin {
+.BtnGoogleRegister {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -255,12 +255,13 @@
     outline: none;
 }
 
-.BtnGoogleLogin:hover, .BtnFacebookLogin:hover {
+.BtnGoogleRegister:hover,
+.BtnFacebookRegister:hover {
     border: solid 2px #00ff26;
     filter: drop-shadow(0px 1px 1px rgba(226, 231, 227, 0.767));
 }
 
-.BtnFacebookLogin {
+.BtnFacebookRegister {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -276,28 +277,27 @@
     outline: none;
 }
 
-.BtnFacebookLogin img {
+.BtnFacebookRegister img {
     width: 1.5rem;
-    height: 1.5rem;  
+    height: 1.5rem;
 }
 
 /* Criar Contar*/
-.LoginFooter {
+.RegisterFooter {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: .5rem;
-    margin-top: 1rem;
+    height: 2rem;
     font-size: 1em;
     color: #ffffff63;
 }
 
-.LoginFooter span {
+.RegisterFooter span {
     margin-right: 1rem;
 }
 
-.LoginFooter a {
+.RegisterFooter a {
     color: #5c73db;
 }
 
