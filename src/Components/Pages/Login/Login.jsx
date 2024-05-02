@@ -23,7 +23,7 @@ function Login() {
     const [signInWithEmailAndPassword, user, error] = useSignInWithEmailAndPassword(auth); // Autenticar um usuário com email e senha
     const navigate = useNavigate(); // Estado e navegaçao entre pages
     const location = useLocation(); // Create a constant called location
-    const [loading, setLoading] = useState(false); 
+    const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState(''); // State for error message
     const [isAlertVisible, setIsAlertVisible] = useState(false); // State for controlling alert visibility
 
@@ -74,11 +74,21 @@ function Login() {
         if (!emailExists) {
             setLoading(false);
             showAlert("E-mail ou senha inválidos!");
+        } if (emailExists) {
+            await signInWithEmailAndPassword(email, password);
+            setLoading(false);
             return;
         }
-        await signInWithEmailAndPassword(email, password);
-        setLoading(false);
-    
+
+        try {
+            await signInWithEmailAndPassword(email, password);
+            setLoading(false);
+        } catch (error) {
+            setLoading(false);
+            showAlert("Erro ao fazer login, tente novamente mais tarde!");
+            console.error("Erro ao fazer login:", error);
+        }
+
     }
 
     if (loading) {
@@ -90,7 +100,7 @@ function Login() {
     }
     if (error) { return (<div><p>Error: {error.message}</p></div>); }
 
-    
+
 
     // Function to handle show/hide password
     const handleShowPassword = () => {
