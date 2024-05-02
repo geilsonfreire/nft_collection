@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'; // Import React
+import React, {} from 'react'; // Import React
 import './Container.css'; // Import CSS
 
 

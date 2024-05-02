@@ -44,15 +44,9 @@ function MainContainer() {
     const totalSlides = Banner.length; // criando um contador para o total de slides
 
     useEffect(() => {
-        console.log(
-            slider.current?.scrollWidth,
-            slider.current?.offsetWidth
-        ); // Verificar o tamanho do scrollWidth e offsetWidth
-
         setWidth(
-            slider.current?.scrollWidth - slider.current?.offsetWidth
-        ); // Setar o width do slider
-
+            slider.current ? slider.current.scrollWidth - slider.current.offsetWidth : 0
+        );
     }, []); // UseEffect para aplicar as regras de slide no banner
 
     useEffect(() => {

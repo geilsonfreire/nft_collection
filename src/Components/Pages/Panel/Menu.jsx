@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from 'react-router-dom'; // Importando Link do react-router-dom
+import { Link, useLocation} from 'react-router-dom'; // Importando Link do react-router-dom
 import "./Menu.css"; /* import the Menu.css file */
 import Logo from "../../../Assets/imgs/logo.gif"; /* import the logo.gif file */
 import {
@@ -14,6 +14,11 @@ import {
 } from "react-icons/fa"; /* import the react-icons/fa file */
 
 function Menu() {
+    const location = useLocation(); // Create a constant called location
+    useEffect(() => {
+        document.title = "Home - NFT Colletion";
+    }, [location]); // Altera nome da página
+
     useEffect(() => {
         const mainMenuLi = document.getElementById("mainMenu").querySelectorAll("li");
 
@@ -31,8 +36,8 @@ function Menu() {
             </Link>
 
             <ul id="mainMenu">
-                <Icon to="/Home" icon={<FaHome />} title="Home"/> {/* page Home */}
-                <Icon to="/" icon={<FaDelicious />} title="Dashboard"/> {/* page Dashboard */}
+                <Icon to="/Home" icon={<FaHome />} title="Home" /> {/* page Home */}
+                <Icon to="/" icon={<FaDelicious />} title="Dashboard" /> {/* page Dashboard */}
                 <Icon to="/" icon={<FaShoppingCart />} title="Produtos" /> {/* page Products */}
                 <Icon to="/" icon={<FaWallet />} title="Carteira" /> {/* page Wallet */}
                 <Icon to="/" icon={<FaChartLine />} title="Gráficos" /> {/* page Reports */}
@@ -46,7 +51,7 @@ function Menu() {
     );
 };
 
-const Icon = ({to, icon, title }) => ( // Icon component
+const Icon = ({ to, icon, title}) => ( // Icon component
     <li>
         <Link to={to} title={title}>
             {icon}

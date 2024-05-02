@@ -24,7 +24,7 @@ function Register() {
     const [isAlertVisible, setIsAlertVisible] = useState(false); // State for controlling alert visibility
     const [isSuccessMessageVisible, setIsSuccessMessageVisible] = useState(false); // State for controlling success message visibility
     const [isRegistering, setIsRegistering] = useState(false); // State to manage registration loading
-    /* const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth); // Creando e autenticando um usuário com email e senha */
+   
 
     // Altera nome da página
     const location = useLocation(); // Create a constant called location
@@ -66,7 +66,7 @@ function Register() {
     const handleSignUp = async (e) => {
         e.preventDefault(); // previnir o comportamento padrão da página
 
-        if (!email || !password) {
+        if (!email || !password || !confirmPassword ) {
             showAlert('E-mail e senha são obrigatórios!');
             return;
         } // Verificar se o email e a senha são obrigatórios

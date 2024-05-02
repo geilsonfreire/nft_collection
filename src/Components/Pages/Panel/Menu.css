@@ -1,6 +1,6 @@
 menu {
     width: 100px;
-    height: 100%;
+    height: 100vh;
     background: #ffffff00;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
     backdrop-filter: blur(3.5px);
@@ -12,6 +12,11 @@ menu {
     align-items: center;
     position: sticky;
     top: 0;
+    overflow-Y: scroll;
+}
+
+menu::-webkit-scrollbar {
+    display: none;
 }
 
 menu img {
@@ -37,7 +42,7 @@ menu ul {
 }
 
 menu ul li {
-    margin: 1rem 0;
+    margin: .7rem 0;
     list-style: none;
     position: relative;
     width: 100%;
