@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react"; // Import React
+import React, { useState, useEffect, useContext } from "react"; // Import React
 import "./Login.css"; // Import CSS
 import nftlogin from "../../../Assets/imgs/nftlogin.jpg"; // Import Image from "nftlogin.jpg
 import Facebook from "../../../Assets/imgs/Facebook.png"; // Import Image from "nftlogin.jpg
+import { AuthGoogleContext } from "../../../Contexts/AuthGoogle";
 
 // import auth faribase hook 
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -12,6 +13,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'; // Importing 
 import { BsArrowRight, BsFillUnlockFill, BsFillPersonFill } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { fetchSignInMethodsForEmail, getAuth } from "firebase/auth";
+
 
 
 // Create a functional component called Login
@@ -26,6 +28,9 @@ function Login() {
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState(''); // State for error message
     const [isAlertVisible, setIsAlertVisible] = useState(false); // State for controlling alert visibility
+    const { signInGoogle, loading: googleLoading } = useContext(AuthGoogleContext); // Create a constant called user
+
+
 
 
     // Altera nome da página
@@ -35,7 +40,7 @@ function Login() {
             setLoading(false);
             navigate("/Home")
         } // Redirecionando para a pagina Home
-    }, [location, user, navigate]);
+    }, [location, user, navigate]); // Altera o nome da página
 
     // Function to show alert
     const showAlert = (message) => {
@@ -87,27 +92,42 @@ function Login() {
             setLoading(false);
             showAlert("Erro ao fazer login, tente novamente mais tarde!");
             console.error("Erro ao fazer login:", error);
+        } finally {
+            setLoading(false);  // Estado inicial do loading
         }
 
-    }
+    };
 
-    if (loading) {
-        return (
-            <div className="loading-container">
-                <p>Entrando...</p>
-            </div>
-        );
-    }
-    if (error) { return (<div><p>Error: {error.message}</p></div>); }
-
-
+    const loginGoogle = async (event) => {
+        event.preventDefault(); // previnir o comportamento padrão da página
+        try {
+            await signInGoogle(); // Login com Google  
+            if (auth.currentUser) {
+                navigate("/Home"); // Redirecionando para a pagina Home
+            } else {
+                throw new Error("Falha, usuário não detectado."); // Apresentando erro
+            }
+        } catch (error) {
+            console.error("Erro ao fazer login com o Google:", error);  // Apresentando erro
+            showAlert("Por favor, tente novamente."); // Apresentando mensagem de erro
+        } finally {
+            setLoading(false); // Estado inicial do loading
+        }
+    } // Função para fazer login com o Google
 
     // Function to handle show/hide password
     const handleShowPassword = () => {
         setShowPassword(!showPassword);
     } // Mostra ou oculta a senha
 
-
+    if (loading || googleLoading ) {
+        return (
+            <div className="loading-container">
+                <p>Entrando...</p>
+            </div>
+        ); // Retorna a mensagem de carregamento
+    }
+    if (error) { return (<div><p>Error: {error.message}</p></div>); }
 
     return (
         <main className="LoginContainer">
@@ -171,9 +191,11 @@ function Login() {
                     </div>
 
                     <div className="SocialLogin">
-                        <button className="BtnGoogleLogin">
+
+                        <button className="BtnGoogleLogin" disabled={googleLoading} onClick={loginGoogle}>
                             <FcGoogle />
                         </button>
+
                         <button className="BtnFacebookLogin">
                             <img src={Facebook} alt="Facebook" title="Login com Facebook" />
                         </button>

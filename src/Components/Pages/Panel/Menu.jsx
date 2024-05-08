@@ -1,7 +1,14 @@
 import React, { useEffect } from "react";
-import { Link, useLocation} from 'react-router-dom'; // Importando Link do react-router-dom
 import "./Menu.css"; /* import the Menu.css file */
+
+// Import Bibliotecas
+import { getAuth, signOut } from "firebase/auth";
+import { Link, useLocation, useNavigate } from 'react-router-dom'; // Importando Link do react-router-dom
+
+// Import IMG
 import Logo from "../../../Assets/imgs/logo.gif"; /* import the logo.gif file */
+
+// Import icon
 import {
     FaHome,
     FaDelicious,
@@ -13,7 +20,23 @@ import {
     FaSignOutAlt,
 } from "react-icons/fa"; /* import the react-icons/fa file */
 
+// Declaraçao de variaveis
+const auth = getAuth();
+
 function Menu() {
+    const navigate = useNavigate();
+
+    function logout(e) {
+        console.log("Tentando deslogar"); // Apenas para debug
+        signOut(auth).then(() => {
+            console.log("Usuário deslogado");
+            navigate('/login'); // Certifique-se de que '/login' é o caminho correto
+        }).catch((error) => {
+            console.error("Erro ao deslogar:", error);
+        });
+    }
+
+
     const location = useLocation(); // Create a constant called location
     useEffect(() => {
         document.title = "Home - NFT Colletion";
@@ -37,25 +60,25 @@ function Menu() {
 
             <ul id="mainMenu">
                 <Icon to="/Home" icon={<FaHome />} title="Home" /> {/* page Home */}
-                <Icon to="/" icon={<FaDelicious />} title="Dashboard" /> {/* page Dashboard */}
-                <Icon to="/" icon={<FaShoppingCart />} title="Produtos" /> {/* page Products */}
-                <Icon to="/" icon={<FaWallet />} title="Carteira" /> {/* page Wallet */}
-                <Icon to="/" icon={<FaChartLine />} title="Gráficos" /> {/* page Reports */}
-                <Icon to="/" icon={<FaRegClock />} title="Histórico" /> {/* page History */}
+                <Icon to="#" icon={<FaDelicious />} title="Dashboard" /> {/* page Dashboard */}
+                <Icon to="#" icon={<FaShoppingCart />} title="Produtos" /> {/* page Products */}
+                <Icon to="#" icon={<FaWallet />} title="Carteira" /> {/* page Wallet */}
+                <Icon to="#" icon={<FaChartLine />} title="Gráficos" /> {/* page Reports */}
+                <Icon to="#" icon={<FaRegClock />} title="Histórico" /> {/* page History */}
             </ul>
             <ul className="lasttMenu">
-                <Icon to="/" icon={<FaCog />} title="Configurações" /> {/* page Settings */}
-                <Icon to="/" icon={<FaSignOutAlt />} title="Sair" /> {/* page Logout */}
+                <Icon to="#" icon={<FaCog />} title="Configurações" /> {/* page Settings */}
+                <Icon to="#" icon={<FaSignOutAlt />} title="Sair" onClick={logout} /> {/* page Logout */}
             </ul>
         </menu>
     );
 };
 
-const Icon = ({ to, icon, title}) => ( // Icon component
+const Icon = ({ to, icon, title, onClick }) => ( // Icon component
     <li>
-        <Link to={to} title={title}>
+        <Link to={to} title={title} onClick={onClick} >
             {icon}
-        </Link>   
+        </Link>
     </li>
 );
 
