@@ -35,31 +35,31 @@ function Login() {
 
     // Altera nome da página
     useEffect(() => {
-        document.title = "Login - NFT Colletion";
+        document.title = "Login - NFT Colletion"; // Alterar o titulo da barra de navegaçao
         if (user) {
-            setLoading(false);
-            navigate("/Home")
+            setLoading(false); // Desativar o estado de carregamento
+            navigate("/Home") // Redirecionar para a pagina Home apois a autenticaçao do usuario
         } // Redirecionando para a pagina Home
     }, [location, user, navigate]); // Altera o nome da página
 
     // Function to show alert
     const showAlert = (message) => {
-        setErrorMessage(message);
-        setIsAlertVisible(true);
+        setErrorMessage(message); // Define a mensagem de erro no estado errorMessage
+        setIsAlertVisible(true); // Define o estado isAlertVisible como true para mostrar o alerta
         setTimeout(() => {
             setIsAlertVisible(false);
         }, 5000); // Alert disappears after 5 seconds
-    };
+    };  // Após 5 segundos, define o estado isAlertVisible como false para ocultar o alerta
 
     // Função para verificar se o e-mail já está cadastrado
     const checkIfEmailExists = async () => {
         try {
-            const auth = getAuth();
-            const methods = await fetchSignInMethodsForEmail(auth, email);
+            const auth = getAuth(); // Obtém os métodos de inscrição para o e-mail fornecido
+            const methods = await fetchSignInMethodsForEmail(auth, email); // Retorna verdadeiro se a lista de métodos de inscrição tiver pelo menos um método, indicando que o e-mail já está cadastrado
             return methods.length > 0;
         } catch (error) {
-            console.error("Erro na checagem do email", error);
-            return false;
+            console.error("Erro na checagem do email", error); // Apresentar erro no console
+            return false; // Retorna false para indicar que houve um erro ao verificar o e-mail
         }
     };
 
@@ -71,29 +71,29 @@ function Login() {
         if (!email || !password) {
             showAlert("Por favor, preencha todos os campos!");
             return;
-        }
+        }  // Verifica se o e-mail e a senha foram fornecidos
 
 
         setLoading(true);
-        const emailExists = await checkIfEmailExists();
-        if (!emailExists) {
-            setLoading(false);
-            showAlert("E-mail ou senha inválidos!");
-        } if (emailExists) {
-            await signInWithEmailAndPassword(email, password);
-            setLoading(false);
+        const emailExists = await checkIfEmailExists(); // Verificar se o email fornecido ja esta cadastrado
+        if (!emailExists) {  // Verificar se o email nao esta cadastrado
+            setLoading(false); // Dasativa o estado de carregamento
+            showAlert("E-mail ou senha inválidos!"); // Apresentar alerta
+        } if (emailExists) { // Se o email existir 
+            await signInWithEmailAndPassword(email, password);  // Tenta autenticar o usuário com o e-mail e senha fornecidos
+            setLoading(false); // Desativar o carregamento 
             return;
         }
 
         try {
-            await signInWithEmailAndPassword(email, password);
-            setLoading(false);
+            await signInWithEmailAndPassword(email, password);  // Tenta autenticar o usuário com o e-mail e senha fornecidos
+            setLoading(false); // Desativar o carregamento
         } catch (error) {
-            setLoading(false);
-            showAlert("Erro ao fazer login, tente novamente mais tarde!");
-            console.error("Erro ao fazer login:", error);
+            setLoading(false); // Deasativar o carregamento
+            showAlert("Erro ao fazer login, tente novamente mais tarde!"); // Apresentar alerta de erro ao efetuar o login
+            console.error("Erro ao fazer login:", error); // Apresentar erro no console
         } finally {
-            setLoading(false);  // Estado inicial do loading
+            setLoading(false);  // Garante que o estado de carregamento seja desativado mesmo que ocorra uma exceção
         }
 
     };
@@ -102,16 +102,16 @@ function Login() {
         event.preventDefault(); // previnir o comportamento padrão da página
         try {
             await signInGoogle(); // Login com Google  
-            if (auth.currentUser) {
+            if (auth.currentUser) { // Verifica se o usuario esta logado
                 navigate("/Home"); // Redirecionando para a pagina Home
             } else {
-                throw new Error("Falha, usuário não detectado."); // Apresentando erro
+                throw new Error("Falha, usuário não detectado."); // Apresentando erro ususario nao foi detectado
             }
         } catch (error) {
-            console.error("Erro ao fazer login com o Google:", error);  // Apresentando erro
-            showAlert("Por favor, tente novamente."); // Apresentando mensagem de erro
+            console.error("Erro ao fazer login com o Google:", error);  // Apresentando erro no console
+            showAlert("Por favor, tente novamente."); // Apresentando alerta de erro
         } finally {
-            setLoading(false); // Estado inicial do loading
+            setLoading(false); // Desativa o estado de carregamento
         }
     } // Função para fazer login com o Google
 
@@ -120,14 +120,14 @@ function Login() {
         setShowPassword(!showPassword);
     } // Mostra ou oculta a senha
 
-    if (loading || googleLoading ) {
+    if (loading || googleLoading ) { // Verificando se login ou googleLogin e true
         return (
             <div className="loading-container">
                 <p>Entrando...</p>
             </div>
         ); // Retorna a mensagem de carregamento
     }
-    if (error) { return (<div><p>Error: {error.message}</p></div>); }
+    if (error) { return (<div><p>Error: {error.message}</p></div>); } // Verifica se ocorreu algum erro durante o processo de logim
 
     return (
         <main className="LoginContainer">
