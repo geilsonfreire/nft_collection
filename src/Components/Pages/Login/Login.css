@@ -308,9 +308,9 @@
 /*  Alet */
 .alertLogin {
     position: fixed;
-    top: 45%;
-    left: 35%;
-    font-size: .7em;
+    top: 15%;
+    left: 15%;
+    font-size: .6em;
     color: red;
     text-transform: uppercase;
     letter-spacing: 2px;

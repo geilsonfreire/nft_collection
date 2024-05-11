@@ -5,7 +5,12 @@ import Facebook from "../../../Assets/imgs/Facebook.png"; // Import Image from "
 
 // import auth faribase
 import { auth } from "../../../Server/FirebaseConfig"; // Import auth from FirebaseConfig
-import { getAuth, createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from 'firebase/auth'; // Import getAuth from firebase/auth
+import { 
+    getAuth, 
+    createUserWithEmailAndPassword, 
+    fetchSignInMethodsForEmail,
+    sendEmailVerification,
+} from 'firebase/auth'; // Import de funçoes 
 
 // Import Biblioteca
 import { Link, useNavigate, useLocation } from 'react-router-dom'; // Importing react-router-dom
@@ -32,35 +37,47 @@ function Register() {
         document.title = "Register - NFT Colletion";
     }, [location]);
 
-    // Function to show alert
+    // Function para mudar o visual dos alerts
     const showAlert = (message) => {
-        setErrorMessage(message);
-        setIsAlertVisible(true);
-        setTimeout(() => {
-            setIsAlertVisible(false);
+        setErrorMessage(message); // Apresentar mensagem de erro
+        setIsAlertVisible(true); // Definir alerta como true
+        setTimeout(() => { // Definir tempo nos alertas
+            setIsAlertVisible(false); // Definir alerta como false
         }, 5000); // Alert disappears after 5 seconds
     };
 
     // Function to show success message
     const showSuccessMessage = () => {
-        setIsSuccessMessageVisible(true);
-        setTimeout(() => {
-            setIsSuccessMessageVisible(false);
-            navigate("/"); // redirecionar para a página de login
+        setIsSuccessMessageVisible(true); // Definir mensagem visivelç
+        setTimeout(() => { // Definir tempo para mensagem
+            setIsSuccessMessageVisible(false); // Definir mensagem de cadastro de sucesso como false
+            navigate("/Login"); // redirecionar para a página de login
         }, 5000); // Success message disappears after 5 seconds and then redirect to login
     };
 
     // Função para verificar se o e-mail já está cadastrado
-    const checkIfEmailExists = async () => {
+    const checkIfEmailExists = async () => { // Declaar funçao assincrona
         try {
-            const auth = getAuth();
-            const methods = await fetchSignInMethodsForEmail(auth, email);
-            return methods.length > 0;
+            const auth = getAuth(); // Declara comstante auth recebendo getauth
+            const methods = await fetchSignInMethodsForEmail(auth, email); // Declarar const methos recebendo wait fet de auth e email
+            return methods.length > 0; // retorna qauntidade dos methods
         } catch (error) {
-            console.error("Erro na checagem do email", error);
-            return false;
+            console.error("Erro na checagem do email", error); // Apresentar erro no console
+            return false; // Retorno como falso
         }
     };
+
+    // Funçao para verificar se formato do email e valido
+    const isEmailValid = (email) => {
+        // Retorna o resultado do método test() aplicado à expressão regular
+        // A expressão regular valida o formato de um endereço de email
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+        // ^[^\s@]+  - Inicia com um ou mais caracteres que não sejam espaço ou '@'
+        // @         - Seguido de um símbolo '@'
+        // [^\s@]+   - Seguido por um ou mais caracteres que não sejam espaço ou '@'
+        // \.        - Seguido de um ponto literal '.'
+        // [^\s@]+$  - Termina com um ou mais caracteres que não sejam espaço ou '@'
+    }
 
     // Funçao para criar um usuário com email e senha
     const handleSignUp = async (e) => {
@@ -69,38 +86,44 @@ function Register() {
         if (!email || !password || !confirmPassword ) {
             showAlert('E-mail e senha são obrigatórios!');
             return;
-        } // Verificar se o email e a senha são obrigatórios
+        } // Verificar se o email e a senha foram iseridos
+
+        if (!isEmailValid(email)) {
+            showAlert("Email invalido");
+            return;
+        } // Verificando e email e valido 
 
         if (password.length < 6) {
             showAlert('A senha deve ter pelo menos 6 caracteres!');
             return;
         } // Verificar se a senha tem pelo menos 6 caracteres
 
-        // Verificar se a senha e a confirmação da senha são iguais
+       
         if (password !== confirmPassword) {
             showAlert('As senhas não são iguais');
             return;
-        } // Create user with email and password
+        }  // Verificar se a password e confirmPassword são iguais 
 
        
-        const emailExists = await checkIfEmailExists(); // Check if email exists
-        if (emailExists) {
-            showAlert('Este e-mail já está cadastrado!');
+        const emailExists = await checkIfEmailExists(); // Verificar se email exists
+        if (emailExists) { // Se emil existir 
+            showAlert('Este e-mail já está cadastrado!'); // apresentar alert
             return;
         } // Verificar se o e-mail já está cadastrado
 
         try {
-            setIsRegistering(true); // Set isRegistering to true
+            setIsRegistering(true); // Definir isRegistering como true
             await createUserWithEmailAndPassword(auth, email, password);
-            showSuccessMessage(); // Show success message
+            await sendEmailVerification(auth.currentUser);
+            showSuccessMessage(); // Apresentar mensagem de sucesso
         } catch (error) {
             if (error.code === "auth/email-already-in-use") {
-                showAlert('Este e-mail já está cadastrado!');
+                showAlert('Este e-mail já está cadastrado!'); // Apresentar alert
             } else {
-                showAlert(error.message);
+                showAlert(error.message); // Apresentar alert de erro
             }
         } finally {
-            setIsRegistering(false); // Set isRegistering to false
+            setIsRegistering(false); // Definir isRegistering como truee
         }
     }
     

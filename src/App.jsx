@@ -6,6 +6,7 @@ import { app } from "./Server/FirebaseConfig"; // Importing FirebaseConfig
 
 // Importing componentes
 import Login from "./Components/Pages/Login/Login"; // Importing Login
+import Register from "./Components/Pages/Login/Register";
 import Home from "./Components/Pages/Home/Home"; // Importing Home
 
 import { AuthGoogleProvider } from "./Contexts/AuthGoogle"; // Importing AuthGoogleProvider
@@ -44,6 +45,7 @@ function App() {
                 <AuthGoogleProvider>
                     <Routes>
                         <Route path="/Login" element={<Login />} />
+                        <Route path="/Register" element={<Register />} />
                         <Route path="/Home" element={<Home />} />
                         <Route
                             path="/"

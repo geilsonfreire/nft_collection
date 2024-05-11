@@ -14,8 +14,6 @@ import { BsArrowRight, BsFillUnlockFill, BsFillPersonFill } from "react-icons/bs
 import { FcGoogle } from "react-icons/fc";
 import { fetchSignInMethodsForEmail, getAuth } from "firebase/auth";
 
-
-
 // Create a functional component called Login
 function Login() {
     // Create a constant called auth
@@ -30,16 +28,18 @@ function Login() {
     const [isAlertVisible, setIsAlertVisible] = useState(false); // State for controlling alert visibility
     const { signInGoogle, loading: googleLoading } = useContext(AuthGoogleContext); // Create a constant called user
 
-
-
-
     // Altera nome da página
     useEffect(() => {
         document.title = "Login - NFT Colletion"; // Alterar o titulo da barra de navegaçao
         if (user) {
             setLoading(false); // Desativar o estado de carregamento
-            navigate("/Home") // Redirecionar para a pagina Home apois a autenticaçao do usuario
-        } // Redirecionando para a pagina Home
+            if (user.emailVerified){
+                navigate("/Home"); // Redirecionar para a pagina Home apois a autenticaçao do usuario
+            } else {
+                showAlert("Verifique seu e-mail antes de fazer login!"); // Apresentando alerta 
+                setIsAlertVisible(true);
+            }
+        }
     }, [location, user, navigate]); // Altera o nome da página
 
     // Function to show alert
@@ -74,7 +74,7 @@ function Login() {
         }  // Verifica se o e-mail e a senha foram fornecidos
 
 
-        setLoading(true);
+        setLoading(true); // Definir estado de loading como true
         const emailExists = await checkIfEmailExists(); // Verificar se o email fornecido ja esta cadastrado
         if (!emailExists) {  // Verificar se o email nao esta cadastrado
             setLoading(false); // Dasativa o estado de carregamento
@@ -87,10 +87,16 @@ function Login() {
 
         try {
             await signInWithEmailAndPassword(email, password);  // Tenta autenticar o usuário com o e-mail e senha fornecidos
-            setLoading(false); // Desativar o carregamento
+            if (auth.currentUser) {
+                if (!auth.currentUser.emailVerified) {
+                    throw new Error("Verifique seu e-mail antes de login! \nVerifique na sua caixa de entrada e sua pasta de spam ou lixeira eletrônica. ");
+                } else {
+                    navigate("/Home"); // Redirecionar o usuario para o Home 
+                }
+            }
         } catch (error) {
             setLoading(false); // Deasativar o carregamento
-            showAlert("Erro ao fazer login, tente novamente mais tarde!"); // Apresentar alerta de erro ao efetuar o login
+            showAlert("Erro ao fazer login, tente novamente mais tarde!" + error.message); // Apresentar alerta de erro ao efetuar o login
             console.error("Erro ao fazer login:", error); // Apresentar erro no console
         } finally {
             setLoading(false);  // Garante que o estado de carregamento seja desativado mesmo que ocorra uma exceção
@@ -120,7 +126,7 @@ function Login() {
         setShowPassword(!showPassword);
     } // Mostra ou oculta a senha
 
-    if (loading || googleLoading ) { // Verificando se login ou googleLogin e true
+    if (loading || googleLoading) { // Verificando se login ou googleLogin e true
         return (
             <div className="loading-container">
                 <p>Entrando...</p>
@@ -142,6 +148,11 @@ function Login() {
                         <span>Login</span>
                     </div>
 
+                    {isAlertVisible && (
+                        <div className="alertLogin">
+                            {errorMessage}
+                        </div>
+                    )}
 
                     <form className="FormLogin">
 
@@ -170,12 +181,6 @@ function Login() {
                             <input type="checkbox" id="showPassword" checked={showPassword} onChange={handleShowPassword} />
                             <label htmlFor="showPassword">Mostrar senha</label>
                         </div>
-
-                        {isAlertVisible && (
-                            <div className="alertLogin">
-                                {errorMessage}
-                            </div>
-                        )}
 
                     </form>
 
