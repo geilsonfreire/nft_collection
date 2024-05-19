@@ -33,7 +33,7 @@ function Login() {
         document.title = "Login - NFT Colletion"; // Alterar o titulo da barra de navegaçao
         if (user) {
             setLoading(false); // Desativar o estado de carregamento
-            if (user.emailVerified){
+            if (user.emailVerified) {
                 navigate("/Home"); // Redirecionar para a pagina Home apois a autenticaçao do usuario
             } else {
                 showAlert("Verifique seu e-mail antes de fazer login!"); // Apresentando alerta 

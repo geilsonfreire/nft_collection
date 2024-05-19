@@ -12,30 +12,36 @@ export const AuthGoogleProvider = ({ children }) => {
     const [loading, setLoading] = useState(false); // Estado inicial do loading
 
     useEffect(() => {
+        // Subscreve-se para observar alterações no estado de autenticação do Firebase
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            // Quando ocorre uma mudança no estado de autenticação do Firebase
+            if (user) { // Se houver um usuário autenticado
+                // Define o usuário no estado local
+                setUser(user);
+                // Armazena os detalhes do usuário autenticado no sessionStorage para persistência
+                sessionStorage.setItem("@AuthFirebase:user", JSON.stringify({ uid: user.uid, email: user.email, photoURL: user.photoURL }));
+            } else { // Se não houver usuário autenticado
+                // Define o estado local do usuário como nulo
+                setUser(null);
+                // Remove os detalhes do usuário armazenados no sessionStorage
+                sessionStorage.removeItem("@AuthFirebase:user");
+            }
+        });
+        // Retorna uma função de limpeza para desinscrever o observador quando o componente é desmontado
+        return () => unsubscribe();
+    }, [auth]); // Dependência do useEffect: será reexecutado sempre que a referência 'auth' mudar
+
+
+    useEffect(() => {
         const loadStorage = () => {
             const sessionToken = sessionStorage.getItem("@AuthFirebase:token"); // Recuperar o token do sessionStorage
             const sessionUser = sessionStorage.getItem("@AuthFirebase:user"); // Recuperar o usuário do sessionStorage
             if (sessionToken && sessionUser) {
-                setUser(JSON.parse(sessionUser)); // Salvar o usuário no estado
+                setUser(sessionUser !== "undefined" ? JSON.parse(sessionUser) : null); // Salvar o usuário no estado
             }
         }
         loadStorage();
     }, []);
-
-    useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((user) => {
-            if (user) {
-                setUser(user);
-                sessionStorage.setItem("@AuthFirebase:user", JSON.stringify(user));
-            } else {
-                setUser(null);
-                sessionStorage.removeItem("@AuthFirebase:user");
-            }
-        });
-        return () => unsubscribe(); // Limpa o observador quando o componente é desmontado
-    }, []);
-
-
     const signInGoogle = async () => {
         setLoading(false); // Ativar loading
         try {
@@ -59,10 +65,10 @@ export const AuthGoogleProvider = ({ children }) => {
         }
     };
 
-
-    return (
+   
+    return ( // Início do componente Provider do contexto AuthGoogleContext
         <AuthGoogleContext.Provider
-            value={{ signInGoogle, signed: !!user, loading }}>
+            value={{ signInGoogle, user, loading }}>
             {children}
         </AuthGoogleContext.Provider>
     );

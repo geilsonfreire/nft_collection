@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from "react"; // Import React com o useState
+import React, { useState, useEffect } from "react"; // Import React com o useState
 import "./Register.css"; // Import CSS
 import nftlogin from "../../../Assets/imgs/nftlogin.jpg"; // Import Image from "nftlogin.jpg
 import Facebook from "../../../Assets/imgs/Facebook.png"; // Import Image from "nftlogin.jpg
 
 // import auth faribase
 import { auth } from "../../../Server/FirebaseConfig"; // Import auth from FirebaseConfig
-import { 
-    getAuth, 
-    createUserWithEmailAndPassword, 
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
     fetchSignInMethodsForEmail,
     sendEmailVerification,
 } from 'firebase/auth'; // Import de funçoes 
@@ -29,7 +29,7 @@ function Register() {
     const [isAlertVisible, setIsAlertVisible] = useState(false); // State for controlling alert visibility
     const [isSuccessMessageVisible, setIsSuccessMessageVisible] = useState(false); // State for controlling success message visibility
     const [isRegistering, setIsRegistering] = useState(false); // State to manage registration loading
-   
+
 
     // Altera nome da página
     const location = useLocation(); // Create a constant called location
@@ -83,7 +83,7 @@ function Register() {
     const handleSignUp = async (e) => {
         e.preventDefault(); // previnir o comportamento padrão da página
 
-        if (!email || !password || !confirmPassword ) {
+        if (!email || !password || !confirmPassword) {
             showAlert('E-mail e senha são obrigatórios!');
             return;
         } // Verificar se o email e a senha foram iseridos
@@ -98,13 +98,13 @@ function Register() {
             return;
         } // Verificar se a senha tem pelo menos 6 caracteres
 
-       
+
         if (password !== confirmPassword) {
             showAlert('As senhas não são iguais');
             return;
         }  // Verificar se a password e confirmPassword são iguais 
 
-       
+
         const emailExists = await checkIfEmailExists(); // Verificar se email exists
         if (emailExists) { // Se emil existir 
             showAlert('Este e-mail já está cadastrado!'); // apresentar alert
@@ -126,13 +126,13 @@ function Register() {
             setIsRegistering(false); // Definir isRegistering como truee
         }
     }
-    
+
     // Function to handle show/hide password
     const handleShowPassword = () => {
         setShowPassword(!showPassword);
     } // Mostra ou oculta a senha
 
-   
+
     return (
         <main className="RegisterContainer">
 
@@ -170,7 +170,7 @@ function Register() {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
-                        
+
                         <div className="InputWithIcon">
                             <BsFillUnlockFill className="InputIcon" />
                             <input
@@ -201,7 +201,10 @@ function Register() {
 
                     </form>
 
-                    <button className="BtnRegister" type="button" onClick={handleSignUp} disabled={isRegistering}>
+                    <button className="BtnRegister" type="button"
+                        onClick={handleSignUp}
+                        disabled={isRegistering}
+                    >
                         {isRegistering ? 'Cadastrando...' : 'Cadastrar'} <i><BsArrowRight /></i>
                     </button>
 

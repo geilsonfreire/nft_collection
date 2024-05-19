@@ -1,32 +1,41 @@
-import React, { useState, useEffect} from "react"; // Import React
+import React, { useState, useEffect, useContext } from "react"; // Import React
 import "./ContainerHeader.css"; // Import CSS
 import { BiSearchAlt2 } from "react-icons/bi"; // Import IconName from react-icons/bi
-import { FaBell, FaChevronDown } from "react-icons/fa"; // Import IconName from react-icons/fa
-import Geilson from "../../../Assets/imgs/Geilson.png"; // Import Image from Geilson.png
+import { FaBell, FaChevronDown, FaRegUserCircle } from "react-icons/fa"; // Import IconName from react-icons/fa
 
 
-// Create a functional component called ContainerHeader
+// Import context do login do google
+import { AuthGoogleContext } from "../../../Contexts/AuthGoogle"; // Import AuthGoogleContext from AuthGoogle
+
+
+// Função para criar o componente ContainerHeader
 function ContainerHeader() {
-
-    // criando um estado para o placeholder
+    const [profileImage, setProfileImage] = useState(null); // Estado para armazenar a imagem do perfil
     const [placeholder, setPlaceholder] = useState(""); // Estado para armazenar o placeholder
     const placeholderFull = "Coleções"; // String completa do placeholder
-    // Índice para acompanhar a posição atual na string do placeholder
-    const [index, setIndex] = useState(0);
-    
+    const [index, setIndex] = useState(0); // Índice para acompanhar a posição atual na string do placeholder
+    const { user } = useContext(AuthGoogleContext); // Recuperar o usuário do contexto
 
-    useEffect(() => { // UseEffect to open and close the drop menu
+    useEffect(() => {
+        
+        if (user && user.photoURL) { // Verificar se o usuário está autenticado com o Google e se possui uma URL de foto
+           
+            setProfileImage(user.photoURL); // Atualiza o estado da imagem do perfil
+        } else {
+            setProfileImage(null);  // Define profileImage como null se não houver photoURL
+        }
+    }, [user]); // Dependência no usuário para atualizar quando ele mudar
 
-        // Get the elements by ID   
-        const MenuTarget = document.getElementById('MenuChevron');
-        const MenuContainer = document.getElementById('MenuConteiner');
+    useEffect(() => { // Função para atualizar o estado da imagem do perfil 
+        const MenuTarget = document.getElementById('MenuChevron'); // Recupera o elemento pelo ID
+        const MenuContainer = document.getElementById('MenuConteiner'); // Recupera o elemento pelo ID
 
         // Add the event listener to the element
         MenuTarget.addEventListener("mouseenter", () => {
             MenuTarget.style.transform = "rotate(180deg)";
             MenuContainer.style.transform = "translateX(0px)";
         }); // Evento de mouse houver para abrir o menu dropdown
-        
+
         MenuContainer.addEventListener("mouseleave", () => {
             MenuTarget.style.transform = "rotate(0deg)";
             MenuContainer.style.transform = "translateX(300px)";
@@ -46,11 +55,11 @@ function ContainerHeader() {
 
         // Limpa o intervalo quando o componente é desmontado
         return () => clearInterval(timer);
-        
+
     }, [index]); // Atualiza o useEffect quando o index é alterado
 
 
-
+  
     return (
         <div className="ContainerHeader">
             <div className="InputBox">
@@ -63,10 +72,14 @@ function ContainerHeader() {
                 <i className="NotifiqueIcon"><FaBell /></i> {/* Icone de notificação */}
 
                 <div className="PerfilImg">
-                    <img src={Geilson} alt="Geilson Freire" />
-                </div> {/* Imagem do perfil */}
+                    {profileImage ? (
+                        <img src={profileImage} alt="Perfill" />
+                    ):(
+                        <FaRegUserCircle className="iconPerfill" />
+                    )}
+                </div> 
 
-                <p className="PerfilName">Geilson Freire</p> {/* Nome do perfil */}
+                <p className="PerfilName">Geilson</p> {/* Nome do perfil */}
 
                 <i className="MenuChevron" id="MenuChevron"><FaChevronDown /></i> {/* Icone de seta para baixo */}
 
