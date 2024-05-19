@@ -24,12 +24,11 @@ import {
 const auth = getAuth();
 
 function Menu() {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // Criar uma constante chamada navigate
 
     function logout(e) {
-        console.log("Tentando deslogar"); // Apenas para debug
+        e.preventDefault(); // Evita que o link redirecione
         signOut(auth).then(() => {
-            console.log("Usuário deslogado");
             navigate('/login'); // Certifique-se de que '/login' é o caminho correto
         }).catch((error) => {
             console.error("Erro ao deslogar:", error);
