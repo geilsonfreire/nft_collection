@@ -6,6 +6,7 @@ import Facebook from "../../../Assets/imgs/Facebook.png"; // Import Image from "
 // import auth faribase
 import { auth } from "../../../Server/FirebaseConfig"; // Import auth from FirebaseConfig
 import {
+    updateProfile,
     getAuth,
     createUserWithEmailAndPassword,
     fetchSignInMethodsForEmail,
@@ -14,12 +15,13 @@ import {
 
 // Import Biblioteca
 import { Link, useNavigate, useLocation } from 'react-router-dom'; // Importing react-router-dom
-import { BsArrowRight, BsFillUnlockFill, BsFillPersonFill } from "react-icons/bs";
+import { BsArrowRight, BsFillUnlockFill, BsFillPersonFill, BsFillEnvelopeAtFill } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 
 // Create a function component called Login
 function Register() {
     // Create a constant called auth
+    const [name, setName] = useState(''); // Estado para gerenciar o nome
     const [email, setEmail] = useState(''); // Create a constant called email
     const [password, setPassword] = useState(''); // Create a constant called password
     const [confirmPassword, setConfirmPassword] = useState(''); // Create a constant called password
@@ -34,7 +36,7 @@ function Register() {
     // Altera nome da página
     const location = useLocation(); // Create a constant called location
     useEffect(() => {
-        document.title = "Register - NFT Colletion";
+        document.title = "Register - NFT Colletion"; // Altera o título da página
     }, [location]);
 
     // Function para mudar o visual dos alerts
@@ -83,10 +85,10 @@ function Register() {
     const handleSignUp = async (e) => {
         e.preventDefault(); // previnir o comportamento padrão da página
 
-        if (!email || !password || !confirmPassword) {
-            showAlert('E-mail e senha são obrigatórios!');
+        if (!email || !password || !confirmPassword || !name) {
+            showAlert('Name, E-mail e senha são obrigatórios!');
             return;
-        } // Verificar se o email e a senha foram iseridos
+        } // Verificar se Nome, email e a senha foram iseridos
 
         if (!isEmailValid(email)) {
             showAlert("Email invalido");
@@ -113,8 +115,9 @@ function Register() {
 
         try {
             setIsRegistering(true); // Definir isRegistering como true
-            await createUserWithEmailAndPassword(auth, email, password);
-            await sendEmailVerification(auth.currentUser);
+            const userCredencial = await createUserWithEmailAndPassword(auth, email, password); // Criar usuário com email e senha
+            await updateProfile(userCredencial.user, { displayName: name }); // Atualizar o nome do usuário
+            await sendEmailVerification(auth.currentUser); // Enviar e-mail de verificação
             showSuccessMessage(); // Apresentar mensagem de sucesso
         } catch (error) {
             if (error.code === "auth/email-already-in-use") {
@@ -131,7 +134,6 @@ function Register() {
     const handleShowPassword = () => {
         setShowPassword(!showPassword);
     } // Mostra ou oculta a senha
-
 
     return (
         <main className="RegisterContainer">
@@ -151,6 +153,17 @@ function Register() {
 
                         <div className="InputWithIcon">
                             <BsFillPersonFill className="InputIcon" />
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Nome"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                        </div>
+
+                        <div className="InputWithIcon">
+                            <BsFillEnvelopeAtFill className="InputIcon" />
                             <input
                                 type="email"
                                 name="email"

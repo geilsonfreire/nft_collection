@@ -14,7 +14,7 @@ import { BiSearchAlt2 } from "react-icons/bi"; // Import IconName from react-ico
 
 
 // Import Bibliotecas
-import { Link, useLocation, useNavigate } from 'react-router-dom'; // Importando Link do react-router-dom
+import { Link, useNavigate } from 'react-router-dom'; // Importando Link do react-router-dom
 import { getAuth, signOut } from "firebase/auth"; // Import getAuth, signOut from firebase/auth
 
 
@@ -35,7 +35,6 @@ function ContainerHeader() {
     useEffect(() => {
 
         if (user && user.photoURL) { // Verificar se o usuário está autenticado com o Google e se possui uma URL de foto
-
             setProfileImage(user.photoURL); // Atualiza o estado da imagem do perfil
         } else {
             setProfileImage(null);  // Define profileImage como null se não houver photoURL
@@ -103,7 +102,7 @@ function ContainerHeader() {
                     )}
                 </div>
 
-                <p className="PerfilName">Geilson</p> {/* Nome do perfil */}
+                <p className="PerfilName">{user ? user.displayName : "Usuário"}</p> {/* Nome do perfil */}
 
                 <i className="MenuChevron" id="MenuChevron"><FaChevronDown /></i> {/* Icone de seta para baixo */}
 

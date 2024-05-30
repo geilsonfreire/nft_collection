@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup} from "firebase/auth";
 import { app } from "../Server/FirebaseConfig"
 
 const provider = new GoogleAuthProvider();  // Create a constant called provider
@@ -19,16 +19,16 @@ export const AuthGoogleProvider = ({ children }) => {
                 // Define o usuário no estado local
                 setUser(user);
                 // Armazena os detalhes do usuário autenticado no sessionStorage para persistência
-                sessionStorage.setItem("@AuthFirebase:user", JSON.stringify({ uid: user.uid, email: user.email, photoURL: user.photoURL }));
+                sessionStorage.setItem("@AuthFirebase:user", JSON.stringify({ uid: user.uid, email: user.email, photoURL: user.photoURL, displayName: user.displayName })); // Salva o usuário no sessionStorage
             } else { // Se não houver usuário autenticado
                 // Define o estado local do usuário como nulo
                 setUser(null);
                 // Remove os detalhes do usuário armazenados no sessionStorage
-                sessionStorage.removeItem("@AuthFirebase:user");
+                sessionStorage.removeItem("@AuthFirebase:user"); // Remove o usuário do sessionStorage
             }
         });
         // Retorna uma função de limpeza para desinscrever o observador quando o componente é desmontado
-        return () => unsubscribe();
+        return () => unsubscribe(); // Função de limpeza
     }, [auth]); // Dependência do useEffect: será reexecutado sempre que a referência 'auth' mudar
 
 
@@ -40,10 +40,11 @@ export const AuthGoogleProvider = ({ children }) => {
                 setUser(sessionUser !== "undefined" ? JSON.parse(sessionUser) : null); // Salvar o usuário no estado
             }
         }
-        loadStorage();
-    }, []);
+        loadStorage(); // Carregar o estado do usuário
+    }, []); // Array de dependências vazio: executa o useEffect apenas uma vez
+
     const signInGoogle = async () => {
-        setLoading(false); // Ativar loading
+        setLoading(false); // Desativa loading
         try {
             const result = await signInWithPopup(auth, provider); // Autenticar com o Google
             const credential = GoogleAuthProvider.credentialFromResult(result); // Recuperar credenciais
@@ -52,7 +53,7 @@ export const AuthGoogleProvider = ({ children }) => {
 
             setUser(user); // Salva o usuário no estado
             sessionStorage.setItem("@AuthFirebase:token", token); // Salva o token no sessionStorage
-            sessionStorage.setItem("@AuthFirebase:user", JSON.stringify(user)); // Salva o usuário no sessionStorage
+            sessionStorage.setItem("@AuthFirebase:user", JSON.stringify({ uid: user.uid, email: user.email, photoURL: user.photoURL, displayName: user.displayName })); // Salva o usuário no sessionStorage
             setLoading(false); // Desativar loading
             return user; // Retornar o usuário autenticado
 
@@ -71,6 +72,6 @@ export const AuthGoogleProvider = ({ children }) => {
             value={{ signInGoogle, user, loading }}>
             {children}
         </AuthGoogleContext.Provider>
-    );
+    ); // Fim do componente Provider do contexto AuthGoogleContext
 
 };

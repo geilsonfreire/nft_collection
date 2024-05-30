@@ -12,7 +12,7 @@
 }
 
 .RegisterContainer .RegisterContainerLeft img {
-    width: 100%;
+    width: 90%;
     height: 100%;
     object-fit: cover;
 }
@@ -105,8 +105,6 @@
     border-radius: 5px;
     background: #ffffff00;
     box-shadow: 0 10px 18px -8px rgba(31, 38, 135, 0.3);
-    backdrop-filter: blur(3.5px);
-    -webkit-backdrop-filter: blur(3.5px);
     color: #fff;
     font-size: 1em;
     outline: none;
@@ -127,8 +125,10 @@
     top: 50%;
     transform: translateY(-50%);
     right: 1rem;
-    color: #ffffff09;
-    filter: none;
+}
+
+form .InputWithIcon:focus-within .InputIcon {
+    color: #00ff26;
 }
 
 .FormLogin input[type="text"],
