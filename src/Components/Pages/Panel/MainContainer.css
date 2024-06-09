@@ -158,13 +158,6 @@
     padding: .3rem;
 }
 
-.Populares .FilterButtons button:hover {
-    background: #00ff26;
-    border-radius: 5px;
-    transition: all 0.3s;
-    cursor: pointer;
-}
-
 .Populares .FilterButtons button a {
     width: 100%;
     height: 100%;
@@ -176,7 +169,9 @@
 }
 
 .Populares .FilterButtons button a:hover {
-    color: #000;
+    color: #00ff26;
+    transition: all 0.3s;
+    transform: translateY(5px);
 }
 
 /* Lateral direita da pagina */
