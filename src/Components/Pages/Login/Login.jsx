@@ -12,7 +12,7 @@ import { auth } from "../../../Server/FirebaseConfig";
 import { Link, useLocation, useNavigate } from 'react-router-dom'; // Importing react-router-dom
 import { BsArrowRight, BsFillUnlockFill, BsFillPersonFill } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
-import { fetchSignInMethodsForEmail, getAuth } from "firebase/auth";
+import { fetchSignInMethodsForEmail, getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 // Create a functional component called Login
 function Login() {
@@ -133,7 +133,22 @@ function Login() {
             </div>
         ); // Retorna a mensagem de carregamento
     }
+
     if (error) { return (<div><p>Error: {error.message}</p></div>); } // Verifica se ocorreu algum erro durante o processo de logim
+
+    const handleResetPassword = async () => {
+        if (!email) {
+            showAlert("Por favor, insira seu e-mail!");
+            return;
+        } // Verifica se o e-mail foi fornecido
+        try {
+            await sendPasswordResetEmail(auth, email); // Enviar e-mail de redefinição de senha
+            showAlert("E-mail de redefinição de senha enviado com sucesso!"); // Apresentar alerta
+        } catch (error) {
+            console.error("Erro ao enviar e-mail de redefinição de senha:", error); // Apresentar erro no console
+            showAlert("Erro ao enviar e-mail de redefinição de senha, tente novamente mais tarde!"); // Apresentar alerta de erro
+        }
+    }
 
     return (
         <main className="LoginContainer">
@@ -184,7 +199,7 @@ function Login() {
 
                     </form>
 
-                    <a className="EsqueseuSenha" href="/">Esqueceu sua senha ?</a>
+                    <a className="EsqueseuSenha" href="#" onClick={handleResetPassword}>Esqueceu sua senha?</a>
                     <button className="BtnLogin" type="submit" onClick={handleSignIn}>
                         Entrar <i><BsArrowRight /></i>
                     </button>
