@@ -51,7 +51,7 @@ const App = () => {
 
     return (
         <div className="App">
-            <Router basename="/nft-collection">
+            <Router>
                 <AuthGoogleProvider>
                     <ToastContainer // Adicione o ToastContainer aqui
                         position="top-right"
