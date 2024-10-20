@@ -105,7 +105,7 @@
     background: #ffffff00;
     box-shadow: 0 10px 18px -8px rgba(31, 38, 135, 0.3);
     color: #fff;
-    font-size: 1em;
+    font-size: 1rem;
     outline: none;
 }
 
@@ -152,12 +152,11 @@
 .CheckBox label {
     margin: 0;
     font-size: .6em;
-    color: #666;
+    color: #00ff26;
 }
 
 .CheckBox label:hover {
     color: #00ff26;
-    text-decoration: underline;
     cursor: pointer;
 }
 
@@ -166,12 +165,12 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    font-size: .6em;
+    font-size: 1rem;
     color: #00ff26;
 }
 
 .EsqueseuSenha:hover {
-    color: #00ff26;
+    color: #06961c;
     text-decoration: underline;
 }
 
@@ -211,7 +210,6 @@
     align-items: center;
     width: 90%;
     font-size: 1em;
-    color: #ffffff63;
 }
 
 .DividerLine {
@@ -222,7 +220,7 @@
 
 .DividerText {
     padding: 0 10px;
-    color: #777;
+    color: #fffcfc;
 }
 
 /* Redes Sociais */

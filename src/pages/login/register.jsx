@@ -4,6 +4,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 // Import CSS
 import "./register.css"; 
+import "./@register.css";
 
 // Import Images ou Icons
 import nftlogin from "../../assets/imgs/nftlogin.jpg"; // Import Image from "nftlogin.jpg
@@ -253,4 +254,4 @@ const Register = () => {
 }
 
 
-export default Register; // Export the component
+export default Register; 

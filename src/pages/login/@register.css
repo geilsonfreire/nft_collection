@@ -1,0 +1,191 @@
+/* Media Query para dispositivos menores que 480px */
+@media (max-width: 480px) {
+    .RegisterContainerLeft {
+        position: relative;
+        width: 100%;
+    }
+
+    .RegisterConatinerRight {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .RegisterConatinerRight .RegisterHeader {
+        width: 50%;
+        top: -5px;
+    }
+
+    .FormRegister {
+        width: 100%;
+        padding: 5%;
+        gap: 1rem;
+    }
+
+    .FormRegister input::placeholder {
+        color: #ffffffc5;
+    }
+}
+
+/* Media Query para dispositivos entre 481px e 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+    .RegisterContainerLeft {
+        position: relative;
+        width: 100%;
+    }
+
+    .RegisterConatinerRight {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .RegisterConatinerRight .RegisterHeader {
+        width: 50%;
+        top: -2px;
+    }
+
+    .RegisterConatinerRight .RegisterHeader span {
+        margin-top: 1rem;
+        font-size: 2rem;
+    }
+
+    .FormRegister {
+        width: 100%;
+        padding: 5%;
+        gap: 1rem;
+    }
+
+    .FormRegister input {
+        font-size: 1rem;
+    }
+
+    .FormRegister input::placeholder {
+        color: #ffffffc5;
+        font-size: 1rem;
+    }
+
+
+    .BtnRegister {
+        height: 4rem;
+        margin: 1rem;
+        border-radius: 10px;
+        font-size: 2rem;
+    }
+
+    .DividerText {
+        font-size: 2rem;
+        margin: 0 1rem;
+    }
+
+    .SocialRegister {
+        gap: 1rem;
+        width: 80%;
+        height: 3rem;
+        margin: 1rem;
+    }
+
+    .BtnGoogleRegister,
+    .BtnFacebookRegister {
+        height: 3rem;
+    }
+
+    .BtnFacebookRegister img {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .RegisterFooter {
+        margin-top: 1rem;
+        font-size: 2rem;
+    }
+}
+
+/* Media Query para dispositivos entre 769px e 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .RegisterContainerLeft {
+        position: relative;
+        width: 100%;
+    }
+
+    .RegisterConatinerRight {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .RegisterConatinerRight .RegisterHeader {
+        width: 50%;
+        top: -2px;
+    }
+
+    .RegisterConatinerRight .RegisterHeader span {
+        margin-top: 1rem;
+        font-size: 2rem;
+    }
+
+    .FormRegister {
+        width: 100%;
+        padding: 5%;
+        gap: 1rem;
+    }
+
+    .FormRegister input {
+        font-size: 1.5rem;
+
+    }
+
+    .FormRegister input::placeholder {
+        color: #ffffffc5;
+        font-size: 1rem;
+    }
+
+    .CheckBox input[type="checkbox"] {
+        width: 1rem;
+    }
+
+    .CheckBox label {
+        font-size: 1rem;
+    }
+
+
+    .BtnRegister {
+        height: 4rem;
+        margin: 1rem;
+        border-radius: 10px;
+        font-size: 2rem;
+    }
+
+    .DividerText {
+        font-size: 2rem;
+        margin: 0 1rem;
+    }
+
+    .SocialRegister {
+        gap: 1rem;
+        width: 80%;
+        height: 3rem;
+        margin: 1rem;
+    }
+
+    .BtnGoogleRegister,
+    .BtnFacebookRegister {
+        height: 3rem;
+    }
+
+    .BtnFacebookRegister img {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .RegisterFooter {
+        margin-top: 1rem;
+        font-size: 2rem;
+    }
+}
+
+/* Media Query para dispositivos entre 1025px e 1440px */
+@media (min-width: 1025px) and (max-width: 1440px) {}
+
+/* Media Query para dispositivos maiores que 1440px */
+@media (min-width: 1441px) {}
