@@ -1,6 +1,6 @@
 // Imports Bibliotecas
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { HashRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -51,7 +51,7 @@ const App = () => {
 
     return (
         <div className="App">
-            <Router>
+            <HashRouter>
                 <AuthGoogleProvider>
                     <ToastContainer // Adicione o ToastContainer aqui
                         position="top-right"
@@ -73,7 +73,7 @@ const App = () => {
                         />
                     </Routes>
                 </AuthGoogleProvider>
-            </Router>
+            </HashRouter>
         </div>
     )
 }
