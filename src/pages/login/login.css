@@ -6,28 +6,27 @@
 }
 
 /* Left */
-.LoginContainer .LoginContainerLeft {
+.LoginContainerLeft {
     width: 50%;
     height: 100%;
 }
 
-.LoginContainer .LoginContainerLeft img {
+.LoginContainerLeft img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
 /* Right */
-.LoginContainer .LoginConatinerRight {
+.LoginConatinerRight {
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
 }
 
-.LoginContainer .LoginConatinerRight .EntradaLogin {
+.LoginConatinerRight .EntradaLogin {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,7 +40,7 @@
     -webkit-backdrop-filter: blur(3.5px);
 }
 
-.LoginContainer .LoginConatinerRight .EntradaLogin::before {
+.LoginConatinerRight .EntradaLogin::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -54,7 +53,7 @@
 
 
 /* Header */
-.LoginContainer .LoginConatinerRight .LoginHeader {
+.LoginConatinerRight .LoginHeader {
     position: absolute;
     background: #00ff26;
     filter: drop-shadow(0px 2px 1px rgba(226, 231, 227, 0.767));
@@ -68,12 +67,12 @@
     align-items: center;
 }
 
-.LoginContainer .LoginConatinerRight .LoginHeader:hover {
+.LoginConatinerRight .LoginHeader:hover {
     background: #fff;
 }
 
 
-.LoginContainer .LoginConatinerRight .LoginHeader span {
+.LoginConatinerRight .LoginHeader span {
     position: absolute;
     width: 100%;
     height: 10%;
@@ -113,6 +112,7 @@
 .FormLogin input::placeholder {
     color: #ffffff09;
     font-size: .8rem;
+    padding-left: 1rem;
 }
 
 .InputWithIcon {
@@ -132,7 +132,6 @@
 .FormLogin input[type="text"],
 .FormLogin input[type="password"] {
     padding-left: 1rem;
-    /* Adiciona espaço para o ícone */
 }
 
 /* Mostrar Senha */
@@ -157,7 +156,7 @@
 }
 
 .CheckBox label:hover {
-    color: #5c73db;
+    color: #00ff26;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -168,11 +167,11 @@
     justify-content: center;
     width: 100%;
     font-size: .6em;
-    color: #ffffff63;
+    color: #00ff26;
 }
 
 .EsqueseuSenha:hover {
-    color: #5c73db;
+    color: #00ff26;
     text-decoration: underline;
 }
 
@@ -182,7 +181,7 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    width: 30%;
+    width: 80%;
     height: 2rem;
     margin: .5rem;
     border: none;
@@ -296,22 +295,9 @@
 }
 
 .LoginFooter a {
-    color: #5c73db;
+    color: #00ff26;
 }
 
 .LoginFooter a:hover {
     text-decoration: underline;
-}
-
-/*  Alet */
-.alertLogin {
-    position: fixed;
-    top: 15%;
-    left: 15%;
-    font-size: .6em;
-    color: red;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 8px 15px;
-    z-index: 1000;
 }

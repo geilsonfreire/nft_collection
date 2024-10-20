@@ -1,0 +1,152 @@
+/* Media Query para dispositivos menores que 480px */
+@media (max-width: 480px) {
+    .LoginContainerLeft {
+        position: relative;
+        width: 100%;
+    }
+
+    .LoginConatinerRight {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .FormLogin {
+        width: 100%;
+        padding: 5%;
+    }
+
+    .FormLogin input::placeholder {
+        color: #ffffffc5;
+    }
+}
+
+/* Media Query para dispositivos entre 481px e 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+    .LoginContainerLeft {
+        position: relative;
+        width: 100%;
+    }
+
+    .LoginConatinerRight {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .FormLogin {
+        width: 100%;
+        padding: 5%;
+        font-size: 2rem;
+        gap: 2rem;
+    }
+
+    .FormLogin input {
+        font-size: 1rem;
+    }
+
+    .FormLogin input::placeholder {
+        font-size: 1rem;
+        color: #ffffffc5;
+    }
+
+    .BtnLogin {
+        height: 4rem;
+        margin: 1rem;
+        border-radius: 10px;
+        font-size: 2rem;
+    }
+
+    .DividerText {
+        font-size: 2rem;
+        margin: 0 1rem;
+    }
+
+    .SocialLogin {
+        gap: 1rem;
+        width: 80%;
+        height: 3rem;
+    }
+
+    .BtnGoogleLogin,
+    .BtnFacebookLogin {
+        height: 3rem;
+    }
+
+    .BtnFacebookLogin img {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+/* Media Query para dispositivos entre 769px e 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .LoginContainerLeft {
+        position: relative;
+        width: 100%;
+    }
+
+    .LoginConatinerRight {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .FormLogin {
+        width: 100%;
+        padding: 5%;
+        font-size: 2rem;
+        gap: 2rem;
+    }
+
+    .FormLogin input {
+        font-size: 1rem;
+    }
+
+    .FormLogin input::placeholder {
+        font-size: 1rem;
+        color: #ffffffc5;
+    }
+
+    .EsqueseuSenha {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        font-size: 1rem;
+        color: #00ff26;
+    }
+
+    .BtnLogin {
+        height: 4rem;
+        margin: 1rem;
+        border-radius: 10px;
+        font-size: 2rem;
+    }
+
+    .DividerText {
+        font-size: 2rem;
+        margin: 0 1rem;
+    }
+
+    .SocialLogin {
+        gap: 1rem;
+        width: 80%;
+        height: 3rem;
+    }
+
+    .BtnGoogleLogin,
+    .BtnFacebookLogin {
+        height: 3rem;
+    }
+
+    .BtnFacebookLogin img {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+/* Media Query para dispositivos entre 1025px e 1440px */
+@media (min-width: 1025px) and (max-width: 1440px) {}
+
+/* Media Query para dispositivos maiores que 1440px */
+@media (min-width: 1441px) {}

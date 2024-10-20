@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 // Import CSS
 import "./login.css";
+import "./@login.css";
 
 // Import Images ou icons
 import nftlogin from "../../assets/imgs/nftlogin.jpg";
