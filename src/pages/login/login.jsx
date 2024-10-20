@@ -1,6 +1,7 @@
 // Imports Bibliotecas
 import { useState, useEffect, useContext } from "react"; // Import React
 import { Link, useLocation, useNavigate } from 'react-router-dom'; 
+import { toast } from "react-toastify";
 
 // Import CSS
 import "./login.css";
@@ -29,8 +30,6 @@ const Login = () => {
     const navigate = useNavigate(); // Estado e navegaçao entre pages
     const location = useLocation(); // Create a constant called location
     const [loading, setLoading] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(''); // State for error message
-    const [isAlertVisible, setIsAlertVisible] = useState(false); // State for controlling alert visibility
     const { signInGoogle, loading: googleLoading } = useContext(AuthGoogleContext); // Create a constant called user
 
     // Altera nome da página
@@ -41,20 +40,11 @@ const Login = () => {
             if (user.emailVerified) {
                 navigate("/Home"); // Redirecionar para a pagina Home apois a autenticaçao do usuario
             } else {
-                showAlert("Verifique seu e-mail antes de fazer login!"); // Apresentando alerta 
-                setIsAlertVisible(true);
+                toast.error("Verifique seu e-mail antes de fazer login!");
             }
         }
     }, [location, user, navigate]); // Altera o nome da página
 
-    // Function to show alert
-    const showAlert = (message) => {
-        setErrorMessage(message); // Define a mensagem de erro no estado errorMessage
-        setIsAlertVisible(true); // Define o estado isAlertVisible como true para mostrar o alerta
-        setTimeout(() => {
-            setIsAlertVisible(false);
-        }, 5000); // Alert disappears after 5 seconds
-    };  // Após 5 segundos, define o estado isAlertVisible como false para ocultar o alerta
 
     // Função para verificar se o e-mail já está cadastrado
     const checkIfEmailExists = async () => {
@@ -74,7 +64,7 @@ const Login = () => {
         e.preventDefault(); // previnir o comportamento padrão da página
 
         if (!email || !password) {
-            showAlert("Por favor, preencha todos os campos!");
+            toast.error("Por favor, preencha todos os campos!");
             return;
         }  // Verifica se o e-mail e a senha foram fornecidos
 
@@ -83,7 +73,7 @@ const Login = () => {
         const emailExists = await checkIfEmailExists(); // Verificar se o email fornecido ja esta cadastrado
         if (!emailExists) {  // Verificar se o email nao esta cadastrado
             setLoading(false); // Dasativa o estado de carregamento
-            showAlert("E-mail ou senha inválidos!"); // Apresentar alerta
+            toast.error("E-mail ou senha inválidos!"); // Apresentar alerta
         } if (emailExists) { // Se o email existir 
             await signInWithEmailAndPassword(email, password);  // Tenta autenticar o usuário com o e-mail e senha fornecidos
             setLoading(false); // Desativar o carregamento 
@@ -101,7 +91,7 @@ const Login = () => {
             }
         } catch (error) {
             setLoading(false); // Deasativar o carregamento
-            showAlert("Erro ao fazer login, tente novamente mais tarde!" + error.message); // Apresentar alerta de erro ao efetuar o login
+            toast.error("Erro ao fazer login, tente novamente mais tarde!" + error.message); // Apresentar alerta de erro ao efetuar o login
             console.error("Erro ao fazer login:", error); // Apresentar erro no console
         } finally {
             setLoading(false);  // Garante que o estado de carregamento seja desativado mesmo que ocorra uma exceção
@@ -120,7 +110,7 @@ const Login = () => {
             }
         } catch (error) {
             console.error("Erro ao fazer login com o Google:", error);  // Apresentando erro no console
-            showAlert("Por favor, tente novamente."); // Apresentando alerta de erro
+            toast.error("Por favor, tente novamente."); // Apresentando alerta de erro
         } finally {
             setLoading(false); // Desativa o estado de carregamento
         }
@@ -143,15 +133,15 @@ const Login = () => {
 
     const handleResetPassword = async () => {
         if (!email) {
-            showAlert("Por favor, insira seu e-mail!");
+            toast.error("Por favor, insira seu e-mail!");
             return;
         } // Verifica se o e-mail foi fornecido
         try {
             await sendPasswordResetEmail(auth, email); // Enviar e-mail de redefinição de senha
-            showAlert("E-mail de redefinição de senha enviado com sucesso!"); // Apresentar alerta
+            toast.error("E-mail de redefinição de senha enviado com sucesso!"); // Apresentar alerta
         } catch (error) {
             console.error("Erro ao enviar e-mail de redefinição de senha:", error); // Apresentar erro no console
-            showAlert("Erro ao enviar e-mail de redefinição de senha, tente novamente mais tarde!"); // Apresentar alerta de erro
+            toast.error("Erro ao enviar e-mail de redefinição de senha, tente novamente mais tarde!"); // Apresentar alerta de erro
         }
     }
 
@@ -167,12 +157,6 @@ const Login = () => {
                     <div className="LoginHeader">
                         <span>Login</span>
                     </div>
-
-                    {isAlertVisible && (
-                        <div className="alertLogin">
-                            {errorMessage}
-                        </div>
-                    )}
 
                     <form className="FormLogin">
 
@@ -240,4 +224,4 @@ const Login = () => {
 }
 
 
-export default Login; // Export the component
+export default Login;

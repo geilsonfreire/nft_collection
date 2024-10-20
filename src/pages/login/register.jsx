@@ -1,6 +1,7 @@
 // Imports Bibliotecas
 import { useState, useEffect } from "react"; // Import React com o useState
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 // Import CSS
 import "./register.css"; 
@@ -31,9 +32,6 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState(''); // Create a constant called password
     const [showPassword, setShowPassword] = useState(false); // State to manage show/hide password
     const navigate = useNavigate(); // useNavigate hook for navigation
-    const [errorMessage, setErrorMessage] = useState(''); // State for error message
-    const [isAlertVisible, setIsAlertVisible] = useState(false); // State for controlling alert visibility
-    const [isSuccessMessageVisible, setIsSuccessMessageVisible] = useState(false); // State for controlling success message visibility
     const [isRegistering, setIsRegistering] = useState(false); // State to manage registration loading
 
 
@@ -43,23 +41,6 @@ const Register = () => {
         document.title = "Register - NFT Colletion"; // Altera o título da página
     }, [location]);
 
-    // Function para mudar o visual dos alerts
-    const showAlert = (message) => {
-        setErrorMessage(message); // Apresentar mensagem de erro
-        setIsAlertVisible(true); // Definir alerta como true
-        setTimeout(() => { // Definir tempo nos alertas
-            setIsAlertVisible(false); // Definir alerta como false
-        }, 5000); // Alert disappears after 5 seconds
-    };
-
-    // Function to show success message
-    const showSuccessMessage = () => {
-        setIsSuccessMessageVisible(true); // Definir mensagem visivelç
-        setTimeout(() => { // Definir tempo para mensagem
-            setIsSuccessMessageVisible(false); // Definir mensagem de cadastro de sucesso como false
-            navigate("/Login"); // redirecionar para a página de login
-        }, 5000); // Success message disappears after 5 seconds and then redirect to login
-    };
 
     // Função para verificar se o e-mail já está cadastrado
     const checkIfEmailExists = async () => { // Declaar funçao assincrona
@@ -75,14 +56,7 @@ const Register = () => {
 
     // Funçao para verificar se formato do email e valido
     const isEmailValid = (email) => {
-        // Retorna o resultado do método test() aplicado à expressão regular
-        // A expressão regular valida o formato de um endereço de email
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-        // ^[^\s@]+  - Inicia com um ou mais caracteres que não sejam espaço ou '@'
-        // @         - Seguido de um símbolo '@'
-        // [^\s@]+   - Seguido por um ou mais caracteres que não sejam espaço ou '@'
-        // \.        - Seguido de um ponto literal '.'
-        // [^\s@]+$  - Termina com um ou mais caracteres que não sejam espaço ou '@'
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
     // Funçao para criar um usuário com email e senha
@@ -90,30 +64,30 @@ const Register = () => {
         e.preventDefault(); // previnir o comportamento padrão da página
 
         if (!email || !password || !confirmPassword || !name) {
-            showAlert('Name, E-mail e senha são obrigatórios!');
+            toast.error('Name, E-mail e senha são obrigatórios!');
             return;
         } // Verificar se Nome, email e a senha foram iseridos
 
         if (!isEmailValid(email)) {
-            showAlert("Email invalido");
+            toast.error("Email invalido");
             return;
         } // Verificando e email e valido 
 
         if (password.length < 6) {
-            showAlert('A senha deve ter pelo menos 6 caracteres!');
+            toast.error('A senha deve ter pelo menos 6 caracteres!');
             return;
         } // Verificar se a senha tem pelo menos 6 caracteres
 
 
         if (password !== confirmPassword) {
-            showAlert('As senhas não são iguais');
+            toast.error('As senhas não são iguais');
             return;
         }  // Verificar se a password e confirmPassword são iguais 
 
 
         const emailExists = await checkIfEmailExists(); // Verificar se email exists
         if (emailExists) { // Se emil existir 
-            showAlert('Este e-mail já está cadastrado!'); // apresentar alert
+            toast.error('Este e-mail já está cadastrado!'); // apresentar alert
             return;
         } // Verificar se o e-mail já está cadastrado
 
@@ -122,12 +96,15 @@ const Register = () => {
             const userCredencial = await createUserWithEmailAndPassword(auth, email, password); // Criar usuário com email e senha
             await updateProfile(userCredencial.user, { displayName: name }); // Atualizar o nome do usuário
             await sendEmailVerification(auth.currentUser); // Enviar e-mail de verificação
-            showSuccessMessage(); // Apresentar mensagem de sucesso
+            toast.success('Usuário cadastrado com sucesso!');
+            setTimeout(() => {
+                navigate("/Login"); // Redirecionar para a página de login após 5 segundos
+            }, 5000);
         } catch (error) {
             if (error.code === "auth/email-already-in-use") {
-                showAlert('Este e-mail já está cadastrado!'); // Apresentar alert
+                toast.error('Este e-mail já está cadastrado!'); // Apresentar alert
             } else {
-                showAlert(error.message); // Apresentar alert de erro
+                toast.error(error.message); // Apresentar alert de erro
             }
         } finally {
             setIsRegistering(false); // Definir isRegistering como truee
@@ -203,19 +180,6 @@ const Register = () => {
                             <input type="checkbox" id="showPassword" checked={showPassword} onChange={handleShowPassword} />
                             <label htmlFor="showPassword">Mostrar senha</label>
                         </div>
-
-                        {isAlertVisible && (
-                            <div className="alert">
-                                {errorMessage}
-                            </div>
-                        )}
-
-                        {isSuccessMessageVisible && (
-                            <div className="success">
-                                Usuário cadastrado com sucesso!
-                            </div>
-                        )}
-
                     </form>
 
                     <button className="BtnRegister" type="button"
