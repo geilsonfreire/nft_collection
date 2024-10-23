@@ -149,7 +149,7 @@ const Login = () => {
         <main className="LoginContainer">
 
             <section className="LoginContainerLeft">
-                <img src={nftlogin} alt="Nft Login" />
+                <img src={nftlogin} alt="Nft Login" loading="lazy" />
             </section>
 
             <section className="LoginConatinerRight">

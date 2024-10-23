@@ -53,7 +53,7 @@ const App = () => {
         <div className="App">
             <Router>
                 <AuthGoogleProvider>
-                    <ToastContainer // Adicione o ToastContainer aqui
+                    <ToastContainer 
                         position="top-right"
                         autoClose={5000}
                         hideProgressBar={false}

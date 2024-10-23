@@ -201,9 +201,9 @@ main .MainCardsContainer a {
 
 @media only screen and (min-width: 526px) and (max-width: 800px) {
     main .MainCardsContainer {
-        max-width: 90%;
+        max-width: 40%;
         max-height: 500px;
-        min-width: 90%;
+        min-width: 48%;
         min-height: 500px;
         margin: .5rem auto;
     }
@@ -264,11 +264,11 @@ main .MainCardsContainer a {
 
 }
 
-@media only screen and (min-width: 800px) and (max-width: 900px) {
+@media only screen and (min-width: 801px) and (max-width: 900px) {
     main .MainCardsContainer {
-        max-width: 350px;
+        max-width: 40%;
         max-height: 500px;
-        min-width: 350px;
+        min-width: 48%;
         min-height: 500px;
         margin: .5rem auto;
     }
