@@ -8,8 +8,8 @@ import "./login.css";
 import "./@login.css";
 
 // Import Images ou icons
-import nftlogin from "../../assets/imgs/nftlogin.jpg";
-import Facebook from "../../assets/imgs/facebook.png"; 
+import nftlogin from "../../assets/imgs/nftlogin.webp";
+import Facebook from "../../assets/imgs/facebook.webp"; 
 import { BsArrowRight, BsFillUnlockFill, BsFillPersonFill } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 

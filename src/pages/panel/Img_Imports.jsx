@@ -1,10 +1,11 @@
 // Import Perfil_Img
-import Perfil1 from "../../assets/perfil_Img/perfil1.png";
-import Perfil2 from "../../assets/perfil_Img/perfil2.png";
-import Perfil3 from "../../assets/perfil_Img/perfil3.png";
-import Perfil4 from "../../assets/perfil_Img/perfil4.png";
-import Perfil5 from "../../assets/perfil_Img/perfil5.png";
-import Perfil6 from "../../assets/perfil_Img/perfil6.png";
+import Perfil1 from "../../assets/perfil_Img/perfil1.webp";
+import Perfil2 from "../../assets/perfil_Img/perfil2.webp";
+import Perfil3 from "../../assets/perfil_Img/perfil3.webp";
+import Perfil4 from "../../assets/perfil_Img/perfil4.webp";
+import Perfil5 from "../../assets/perfil_Img/perfil5.webp";
+import Perfil6 from "../../assets/perfil_Img/perfil6.webp";
+
 
 
 

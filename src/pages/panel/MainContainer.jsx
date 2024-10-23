@@ -12,29 +12,29 @@ import MainRightBottonContainer from "./MainRightBottonContainer";
 
 
 // import img cardsNFT
-import nft1 from "../../assets/nft_Img/nft1.jpg";
-import nft2 from "../../assets/nft_Img/nft2.jpg";
-import nft3 from "../../assets/nft_Img/nft3.jpg";
-import nft4 from "../../assets/nft_Img/nft4.jpg";
-import nft5 from "../../assets/nft_Img/nft5.jpg";
-import nft6 from "../../assets/nft_Img/nft6.jpg";
-import nft7 from "../../assets/nft_Img/nft7.jpg";
-import nft8 from "../../assets/nft_Img/nft8.jpg";
-import nft9 from "../../assets/nft_Img/nft9.jpg";
-import nft10 from "../../assets/nft_Img/nft10.jpg";
-import nft11 from "../../assets/nft_Img/nft11.jpg"; 
-import nft12 from "../../assets/nft_Img/nft12.jpg";
-import nft13 from "../../assets/nft_Img/nft13.jpg";
-import nft14 from "../../assets/nft_Img/nft14.jpg";
-import nft15 from "../../assets/nft_Img/nft15.jpg";     
-import nft16 from "../../assets/nft_Img/nft16.jpg";
-import nft17 from "../../assets/nft_Img/nft17.jpg";
-import nft18 from "../../assets/nft_Img/nft18.jpg";
-import nft19 from "../../assets/nft_Img/nft19.jpg";
-import nft20 from "../../assets/nft_Img/nft20.jpg";
-import nft21 from "../../assets/nft_Img/nft21.jpg";
-import nft22 from "../../assets/nft_Img/nft22.jpg";
-import nft23 from "../../assets/nft_Img/nft23.jpg";
+import nft1 from "../../assets/nft_Img/nft1.webp";
+import nft2 from "../../assets/nft_Img/nft2.webp";
+import nft3 from "../../assets/nft_Img/nft3.webp";
+import nft4 from "../../assets/nft_Img/nft4.webp";
+import nft5 from "../../assets/nft_Img/nft5.webp";
+import nft6 from "../../assets/nft_Img/nft6.webp";
+import nft7 from "../../assets/nft_Img/nft7.webp";
+import nft8 from "../../assets/nft_Img/nft8.webp";
+import nft9 from "../../assets/nft_Img/nft9.webp";
+import nft10 from "../../assets/nft_Img/nft10.webp";
+import nft11 from "../../assets/nft_Img/nft11.webp";
+import nft12 from "../../assets/nft_Img/nft12.webp";
+import nft13 from "../../assets/nft_Img/nft13.webp";
+import nft14 from "../../assets/nft_Img/nft14.webp";
+import nft15 from "../../assets/nft_Img/nft15.webp";
+import nft16 from "../../assets/nft_Img/nft16.webp";
+import nft17 from "../../assets/nft_Img/nft17.webp";
+import nft18 from "../../assets/nft_Img/nft18.webp";
+import nft19 from "../../assets/nft_Img/nft19.webp";
+import nft20 from "../../assets/nft_Img/nft20.webp";
+import nft21 from "../../assets/nft_Img/nft21.webp";
+import nft22 from "../../assets/nft_Img/nft22.webp";
+import nft23 from "../../assets/nft_Img/nft23.webp";
 
 
 
